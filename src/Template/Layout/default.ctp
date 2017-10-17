@@ -52,7 +52,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li><a target="_blank" href="https://book.cakephp.org/3.0/">Login</a></li>
                     <li><a target="_blank" href="https://api.cakephp.org/3.0/">Sign Up</a></li>
                 <?php else: ?>
-                    <li><a target="_blank" href="https://book.cakephp.org/3.0/">Create Warrior</a></li>
+                    <li><?= $this->Html->link('My Account', ['controller' => 'Players', 'action' => 'view/'.$this->request->session()->read('Auth.User.id')]) ?></li>
+                    <li><a target="_blank" href="https://book.cakephp.org/3.0/">Fighter</a></li>
                     <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
                 <?php endif; ?>
             </ul>

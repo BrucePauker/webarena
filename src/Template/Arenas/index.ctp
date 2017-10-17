@@ -1,1 +1,1 @@
-<?php echo'bonjour' ?>
+<?php  'bonjour' ?>
