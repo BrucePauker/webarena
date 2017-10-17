@@ -47,7 +47,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Arenas',
      * its action called 'index', and we pass a param to select the view file
-     * to use (in this case, src/Template/Arenas/index.ctp)...
+     * to use (in this case, src/Template/Arenas/view.ctp)...
      */
     $routes->connect('/', ['controller' => 'Arenas', 'action' => 'index']);
 
