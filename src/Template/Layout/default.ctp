@@ -40,24 +40,32 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">
+            <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Web Arena
+        </a>
+        <ul class="nav navbar-nav right">
+            <form class="form-inline my-2 my-lg-0">
                 <?php if(!$this->request->session()->read('Auth.User.id')): ?>
-                    <li><a target="_blank" href="https://book.cakephp.org/3.0/">Login</a></li>
+                    <li><?= $this->Form->control('email',['placeholder'=>'Email']) ?></li>
+                    <li><?= $this->Form->control('password',['placeholder'=>'Password']) ?></li>
+                    <li><?= $this->Form->button(__('Se Connecter'),['class'=>'btn btn-primary']); ?></li>
                     <li><a target="_blank" href="https://api.cakephp.org/3.0/">Sign Up</a></li>
                 <?php else: ?>
                     <li><?= $this->Html->link('My Account', ['controller' => 'Players', 'action' => 'view/'.$this->request->session()->read('Auth.User.id')]) ?></li>
                     <li><a target="_blank" href="https://book.cakephp.org/3.0/">Fighter</a></li>
                     <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
                 <?php endif; ?>
-            </ul>
-        </div>
+            </form>
+        </ul>
+
+      </div>
     </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
