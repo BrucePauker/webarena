@@ -1,11 +1,22 @@
-<div class="users form">
-    <?= $this->Flash->render() ?>
-    <?= $this->Form->create() ?>
-    <fieldset>
-        <legend><?= __("Merci de rentrer vos nom d'utilisateur et mot de passe") ?></legend>
-        <?= $this->Form->control('email') ?>
-        <?= $this->Form->control('password') ?>
-    </fieldset>
-    <?= $this->Form->button(__('Se Connecter')); ?>
-    <?= $this->Form->end() ?>
+<div class="container-fluid">
+	<div class="row mt-5 justify-content-center">
+		<div class="card w-75">
+			<div class="card-header">
+				Log In!
+			</div>
+			<div class="card-body">
+		    	<div class="users form">
+		    		<?= $this->Flash->render() ?>
+				    <?= $this->Form->create() ?>
+				    <fieldset>
+				        <?= $this->Form->control('email') ?>
+				        <?= $this->Form->control('password') ?>
+				    </fieldset>
+				    <?= $this->Form->button(__('Log In'),['class'=>'btn btn-primary']); ?>
+				    <?= $this->Form->end() ?>
+				</div>
+	  		</div>
+		</div>
+	</div>
+	
 </div>

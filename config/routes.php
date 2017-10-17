@@ -52,6 +52,11 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Arenas', 'action' => 'index']);
 
     /**
+     * Route for the login and logout function
+     */
+    $routes->post('/logout', ['controller' => 'Players', 'action' => 'logout'],  'logout');
+
+    /**
      * Connect catchall routes for all controllers.
      *
      * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
