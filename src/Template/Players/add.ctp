@@ -11,7 +11,7 @@
 				        <?= $this->Form->control('email') ?>
 				        <?= $this->Form->control('password') ?>
 				    </fieldset>
-				    <?= $this->Form->button(__('Ajouter'),['class'=>'login-btn']); ?>
+				    <?= $this->Form->button(__('Ajouter'),['class'=>'btn btn-primary']); ?>
 				    <?= $this->Form->end() ?>
 				</div>
 	  		</div>

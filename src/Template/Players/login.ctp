@@ -6,6 +6,6 @@
         <?= $this->Form->control('email') ?>
         <?= $this->Form->control('password') ?>
     </fieldset>
-    <?= $this->Form->button(__('Se Connecter')); ?>
+    <?= $this->Form->button(__('Se Connecter'),['class'=>'btn btn-primary']); ?>
     <?= $this->Form->end() ?>
 </div>
