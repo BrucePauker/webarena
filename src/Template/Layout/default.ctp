@@ -50,13 +50,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Web Arena
         </a>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav right">
             <form class="form-inline my-2 my-lg-0">
-                <?= $this->Form->control('email',['placeholder'=>'Email']) ?>
-                <?= $this->Form->control('password',['placeholder'=>'Password']) ?>
-                <?= $this->Form->button(__('Se Connecter'),['class'=>'btn btn-primary']); ?>
+                <?php if(!$this->request->session()->read('Auth.User.id')): ?>
+                    <li><?= $this->Form->control('email',['placeholder'=>'Email']) ?></li>
+                    <li><?= $this->Form->control('password',['placeholder'=>'Password']) ?></li>
+                    <li><?= $this->Form->button(__('Se Connecter'),['class'=>'btn btn-primary']); ?></li>
+                    <li><a target="_blank" href="https://api.cakephp.org/3.0/">Sign Up</a></li>
+                <?php else: ?>
+                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Create Warrior</a></li>
+                    <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
+                <?php endif; ?>
             </form>
         </ul>
+
       </div>
     </nav>
     <?= $this->Flash->render() ?>
