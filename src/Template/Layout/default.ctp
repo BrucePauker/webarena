@@ -46,7 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="/webArena/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Web Arena
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,11 +59,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <form class="form-inline my-2 my-lg-0">
                     <?php if(!$this->request->session()->read('Auth.User.id')): ?>
                         <li><?= $this->Html->link('Log In', ['controller' => 'Players', 'action' => 'login'], ['class'=>'btn btn-light']) ?></li>
-                        <li><?= $this->Html->link('Sign Up', ['controller' => 'Players', 'action' => 'add'], ['class'=>'btn btn-light']) ?></li>
+                        <li><?= $this->Html->link('Sign Up', ['controller' => 'Players', 'action' => 'add'], ['class'=>'btn btn-light'], ['class'=>'btn btn-light']) ?></li>
                     <?php else: ?>
-                        <li><?= $this->Html->link('My Account', ['controller' => 'Players', 'action' => 'view/'.$this->request->session()->read('Auth.User.id')]) ?></li>
+                        <li><?= $this->Html->link('My Account', ['controller' => 'Players', 'action' => 'view/'.$this->request->session()->read('Auth.User.id')], ['class'=>'btn btn-light']) ?></li>
                         <li><a target="_blank" href="https://book.cakephp.org/3.0/">Fighter</a></li>
-                        <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
+                        <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout'], ['class'=>'btn btn-light']) ?></li>
                     <?php endif; ?>
                 </form>
             </ul>
