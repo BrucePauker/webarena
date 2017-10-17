@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Players Controller
@@ -14,16 +15,13 @@ class PlayersController extends AppController
 {
 
     /**
-     * Index method
+     * Filter the event before the request happenes
      *
-     * @return \Cake\Http\Response|void
+     * @param Event $event
      */
-    public function index()
+    public function beforeFilter(Event $event)
     {
-        $players = $this->paginate($this->Players);
-
-        $this->set(compact('players'));
-        $this->set('_serialize', ['players']);
+        $this->Auth->allow(['add', 'login']);
     }
 
     /**
@@ -44,6 +42,33 @@ class PlayersController extends AppController
     }
 
     /**
+     * Login function
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $player = $this->Auth->identify();
+            if ($player) {
+                $this->Auth->setUser($player);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Email ou mot de passe invalide'));
+        }
+    }
+
+    /**
+     * Logout function
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
+
+    /**
      * Add a new user method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
@@ -55,7 +80,7 @@ class PlayersController extends AppController
             $player = $this->Players->patchEntity($player, $this->request->getData());
             if ($this->Players->save($player)) {
                 $this->Flash->success(__("L'utilisateur a été sauvegardé."));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'login']);
             }
             $this->Flash->error(__("Impossible d'ajouter l'utilisateur."));
         }
