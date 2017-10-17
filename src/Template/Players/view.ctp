@@ -16,7 +16,7 @@
 				Your Fighters
 			</div>
 			<div class="card-body">
-				
+				<p class="card-text">You have <?php echo count($player->fighter) ?> fighter(s)</p>
 			</div>
 		</div>
 	</div>
