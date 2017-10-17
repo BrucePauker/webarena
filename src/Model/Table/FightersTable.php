@@ -67,9 +67,14 @@ class FightersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->scalar('player_id')
+            ->requirePresence('player_id', 'create')
+            ->notEmpty('player_id', 'It must be assign to a player');
+
+        $validator
             ->scalar('name')
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name', 'There must be a name');
 
         $validator
             ->integer('coordinate_x')
@@ -84,36 +89,36 @@ class FightersTable extends Table
         $validator
             ->integer('level')
             ->requirePresence('level', 'create')
-            ->notEmpty('level');
+            ->allowEmpty('level', 'create');
 
         $validator
             ->integer('xp')
             ->requirePresence('xp', 'create')
-            ->notEmpty('xp');
+            ->allowEmpty('xp', 'create');
 
         $validator
             ->integer('skill_sight')
             ->requirePresence('skill_sight', 'create')
-            ->notEmpty('skill_sight');
+            ->allowEmpty('skill_sight', 'create');
 
         $validator
             ->integer('skill_strength')
             ->requirePresence('skill_strength', 'create')
-            ->notEmpty('skill_strength');
+            ->allowEmpty('skill_strength', 'create');
 
         $validator
             ->integer('skill_health')
             ->requirePresence('skill_health', 'create')
-            ->notEmpty('skill_health');
+            ->allowEmpty('skill_health', 'create');
 
         $validator
             ->integer('current_health')
             ->requirePresence('current_health', 'create')
-            ->notEmpty('current_health');
+            ->allowEmpty('current_health', 'create');
 
         $validator
             ->dateTime('next_action_time')
-            ->allowEmpty('next_action_time');
+            ->allowEmpty('next_action_time', 'create');
 
         return $validator;
     }
