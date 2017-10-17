@@ -52,7 +52,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -62,7 +61,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <li><?= $this->Html->link('Log In', ['controller' => 'Players', 'action' => 'login'], ['class'=>'btn btn-light']) ?></li>
                         <li><?= $this->Html->link('Sign Up', ['controller' => 'Players', 'action' => 'add'], ['class'=>'btn btn-light']) ?></li>
                     <?php else: ?>
-                        <li><a target="_blank" href="https://book.cakephp.org/3.0/">Create Warrior</a></li>
+                        <li><?= $this->Html->link('My Account', ['controller' => 'Players', 'action' => 'view/'.$this->request->session()->read('Auth.User.id')]) ?></li>
+                        <li><a target="_blank" href="https://book.cakephp.org/3.0/">Fighter</a></li>
                         <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
                     <?php endif; ?>
                 </form>
