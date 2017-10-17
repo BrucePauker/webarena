@@ -14,22 +14,6 @@ class FightersController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Players', 'Guilds']
-        ];
-        $fighters = $this->paginate($this->Fighters);
-
-        $this->set(compact('fighters'));
-        $this->set('_serialize', ['fighters']);
-    }
-
-    /**
      * View method
      *
      * @param string|null $id Fighter id.
