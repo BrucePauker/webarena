@@ -41,30 +41,33 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <body>
     <!-- Image and text -->
+
+
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" href="#">
             <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Web Arena
         </a>
-        <ul class="nav navbar-nav right">
-            <form class="form-inline my-2 my-lg-0">
-                <?php if(!$this->request->session()->read('Auth.User.id')): ?>
-                    <li><?= $this->Form->control('email',['placeholder'=>'Email']) ?></li>
-                    <li><?= $this->Form->control('password',['placeholder'=>'Password']) ?></li>
-                    <li><?= $this->Form->button(__('Se Connecter'),['class'=>'btn btn-primary']); ?></li>
-                    <li><a target="_blank" href="https://api.cakephp.org/3.0/">Sign Up</a></li>
-                <?php else: ?>
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Create Warrior</a></li>
-                    <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
-                <?php endif; ?>
-            </form>
-        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-      </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav mr-">
+                <form class="form-inline my-2 my-lg-0">
+                    <?php if(!$this->request->session()->read('Auth.User.id')): ?>
+                        <li><?= $this->Html->link('Log In', ['controller' => 'Players', 'action' => 'login'], ['class'=>'btn btn-light']) ?></li>
+                        <li><?= $this->Html->link('Sign Up', ['controller' => 'Players', 'action' => 'add'], ['class'=>'btn btn-light']) ?></li>
+                    <?php else: ?>
+                        <li><a target="_blank" href="https://book.cakephp.org/3.0/">Create Warrior</a></li>
+                        <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout']) ?></li>
+                    <?php endif; ?>
+                </form>
+            </ul>
+        </div>
     </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
