@@ -14,6 +14,17 @@ class FightersController extends AppController
 {
 
     /**
+     * List of all the fighters
+     *
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function listFighters()
+    {
+
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Fighter id.
