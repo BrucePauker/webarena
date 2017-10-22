@@ -1,8 +1,8 @@
 <div class="container-fluid">
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-4 justify-content-center">
         <div class="card w-75">
             <div class="card-header">
-                Sign Up!
+                Create your Fighter ! 
             </div>
             <div class="card-body">
                 <div class="players form">

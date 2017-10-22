@@ -5,3 +5,33 @@
   --dark-brown:#301a18;
   --dark-blue:#0b315e;
 }
+
+body
+{
+	background: #eee;
+}
+
+
+fieldset[disabled] .form-control:hover
+{
+	cursor: not-allowed;
+}
+
+.nav button
+{
+	margin-left:1rem;
+	margin-right: 1rem;
+	margin-bottom: 0;
+}
+
+a
+{
+	text-decoration: none;
+	color: var(--black);
+}
+
+a:hover
+{
+	text-decoration: none;
+	color: var(--black);
+}
