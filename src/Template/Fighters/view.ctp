@@ -15,7 +15,7 @@
     <div class="col-4 align-self-center">
         <div class="card">
             <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted">Name : <?= $fighter->name ?></h6>
+                <h5 class="mb-2">Name : <?= $fighter->name ?></h5>
                 <p class="card-text">Coordinate X : <?= $fighter->coordinate_x ?></p>
                 <p class="card-text">Coordinate Y : <?= $fighter->coordinate_y ?></p>
                 <p class="card-text">Level : <?= $fighter->level ?></p>
