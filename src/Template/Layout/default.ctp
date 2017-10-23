@@ -45,7 +45,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="">
             <img src="/webArena/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Web Arena
         </a>
@@ -61,6 +61,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <li><?= $this->Html->link('Log In', ['controller' => 'Players', 'action' => 'login'], ['class'=>'btn btn-light']) ?></li>
                         <li><?= $this->Html->link('Sign Up', ['controller' => 'Players', 'action' => 'add'], ['class'=>'btn btn-light'], ['class'=>'btn btn-light']) ?></li>
                     <?php else: ?>
+                        <li><?= $this->Html->link('Back To the pit !', ['controller' => 'Arenas', 'action' => 'index'], ['class'=>'btn btn-light']) ?></li>
                         <li><?= $this->Html->link('My Account', ['controller' => 'Players', 'action' => 'view/'.$this->request->session()->read('Auth.User.id')], ['class'=>'btn btn-light']) ?></li>
                         <li><?= $this->Html->link('Fighter', ['controller' => 'Fighters', 'action' => 'listFighters'], ['class'=>'btn btn-light']) ?></li>
                         <li><?= $this->Html->link('Logout', ['controller' => 'Players', 'action' => 'logout'], ['class'=>'btn btn-light']) ?></li>
