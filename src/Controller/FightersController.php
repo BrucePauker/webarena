@@ -24,16 +24,15 @@ class FightersController extends AppController
         // If it's the authenticated user's fighter
         if($id == null)
         {
-            $fighter = $this->Fighters->find('all', ['player_id' => $this->Auth->user('id')])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
-            $fighter = $fighter[0];
+            $fighters = $this->Fighters->find('all', ['player_id' => $this->Auth->user('id')])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
         }
         else
-            $fighter = $this->Fighters->get($id, [
+            $fighters = $this->Fighters->get($id, [
                 'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
             ]);
 
-        $this->set('fighter', $fighter);
-        $this->set('_serialize', ['fighter']);
+        $this->set('fighters', $fighters);
+        $this->set('_serialize', ['fighters']);
     }
 
     /**
