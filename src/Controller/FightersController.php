@@ -25,6 +25,16 @@ class FightersController extends AppController
     }
 
     /**
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function listFighters() {
+        $fighters = $this->Fighters->find('all')->where(['player_id' => $this->Auth->user('id')])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+        $this->set('fighters', $fighters);
+        $this->set('_serialize', ['fighter']);
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Fighter id.
@@ -33,18 +43,12 @@ class FightersController extends AppController
      */
     public function view($id = null)
     {
-        // If it's the authenticated user's fighter
-        if($id == null)
-        {
-            $fighters = $this->Fighters->find('all', ['player_id' => $this->Auth->user('id')])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
-        }
-        else
-            $fighters = $this->Fighters->get($id, [
-                'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
-            ]);
+        $fighter = $this->Fighters->get($id, [
+            'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
+        ]);
 
-        $this->set('fighters', $fighters);
-        $this->set('_serialize', ['fighters']);
+        $this->set('fighter', $fighter);
+        $this->set('_serialize', ['fighter']);
     }
 
     /**
