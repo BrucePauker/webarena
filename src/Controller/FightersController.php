@@ -12,18 +12,6 @@ use App\Controller\AppController;
  */
 class FightersController extends AppController
 {
-
-    /**
-     * List of all the fighters
-     *
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function listFighters()
-    {
-
-    }
-
     /**
      * View method
      *
@@ -33,9 +21,16 @@ class FightersController extends AppController
      */
     public function view($id = null)
     {
-        $fighter = $this->Fighters->get($id, [
-            'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
-        ]);
+        // If it's the authenticated user's fighter
+        if($id == null)
+        {
+            $fighter = $this->Fighters->find('all', ['player_id' => $this->Auth->user('id')])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+            $fighter = $fighter[0];
+        }
+        else
+            $fighter = $this->Fighters->get($id, [
+                'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
+            ]);
 
         $this->set('fighter', $fighter);
         $this->set('_serialize', ['fighter']);
