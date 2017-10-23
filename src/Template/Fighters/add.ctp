@@ -9,8 +9,6 @@
                     <?= $this->Form->create($fighter) ?>
                     <fieldset>
                         <?= $this->Form->control('name') ?>
-                        <?= $this->Form->control('coordinate_x') ?>
-                        <?= $this->Form->control('coordinate_y') ?>
                     </fieldset>
                     <?= $this->Form->button(__('Add'),['class'=>'btn btn-primary']); ?>
                     <?= $this->Form->end() ?>
