@@ -19,13 +19,13 @@ fieldset[disabled] .form-control:hover
 a
 {
 	text-decoration: none;
-	color: #000);
+	color: white;
 }
 
 a:hover
 {
 	text-decoration: none;
-	color: #000;
+	color: white;
 }
 
 .map
