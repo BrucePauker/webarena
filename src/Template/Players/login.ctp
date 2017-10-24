@@ -9,11 +9,11 @@
 		    		<?= $this->Flash->render() ?>
 				    <?= $this->Form->create() ?>
 				    <fieldset>
-				        <?= $this->Form->control('email') ?>
-				        <?= $this->Form->control('password') ?>
+				        <?= $this->Form->control('email', ['class'=>'form-control']) ?>
+				        <?= $this->Form->control('password', ['class'=>'form-control']) ?>
 				    </fieldset>
-				    <?= $this->Form->button(__('Log In'),['class'=>'btn btn-primary']); ?>
-				    <?= $this->Form->end() ?>
+			    	<?= $this->Form->button(__('Log In'),['class'=>'btn btn-primary mt-4 float-right']); ?>
+			   		<?= $this->Form->end() ?>
 				</div>
 	  		</div>
 		</div>

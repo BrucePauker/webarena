@@ -4,10 +4,10 @@
             <div class="card-body">
                 <nav class="nav justify-content-center">
                     <div class="col-6">
-                        <button class="btn btn-warning nav-link m-auto">Change avatar</button>
+                        <button class="btn btn-info nav-link m-auto">Change avatar</button>
                     </div>
                     <div class="col-6">
-                        <button class="btn btn-warning nav-link m-auto">Pass Level</button>
+                        <button class="btn btn-info nav-link m-auto">Pass Level</button>
                     </div>
                 </nav>
             </div>
@@ -19,14 +19,14 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="mb-2">Name : <?= $fighter->name ?></h5>
-                <p class="card-text">Coordinate X : <?= $fighter->coordinate_x ?></p>
-                <p class="card-text">Coordinate Y : <?= $fighter->coordinate_y ?></p>
-                <p class="card-text">Level : <?= $fighter->level ?></p>
-                <p class="card-text">XP : <?= $fighter->xp ?></p>
-                <p class="card-text">Sight Skill : <?= $fighter->skill_sight ?></p>
-                <p class="card-text">Strenght Skill : <?= $fighter->skill_strength ?></p>
-                <p class="card-text">Health Skill : <?= $fighter->skill_health ?></p>
-                <p class="card-text">Current Health : <?= $fighter->current_health ?></p>
+                <p>Coordinate X : <?= $fighter->coordinate_x ?></p>
+                <p>Coordinate Y : <?= $fighter->coordinate_y ?></p>
+                <p>Level : <?= $fighter->level ?></p>
+                <p>XP : <?= $fighter->xp ?></p>
+                <p>Sight Skill : <?= $fighter->skill_sight ?></p>
+                <p>Strenght Skill : <?= $fighter->skill_strength ?></p>
+                <p>Health Skill : <?= $fighter->skill_health ?></p>
+                <p>Current Health : <?= $fighter->current_health ?></p>
             </div>
         </div>
     </div>

@@ -8,10 +8,10 @@
 		    	<div class="players form">
 				    <?= $this->Form->create($player) ?>
 				    <fieldset>
-				        <?= $this->Form->control('email') ?>
-				        <?= $this->Form->control('password') ?>
+				        <?= $this->Form->control('email', ['class'=>'form-control']) ?>
+				        <?= $this->Form->control('password',  ['class'=>'form-control']) ?>
 				    </fieldset>
-				    <?= $this->Form->button(__('Sign In'),['class'=>'btn btn-primary']); ?>
+				    <?= $this->Form->button(__('Sign In'),['class'=>'btn btn-primary mt-4 float-right']); ?>
 				    <?= $this->Form->end() ?>
 				</div>
 	  		</div>

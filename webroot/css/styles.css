@@ -6,10 +6,6 @@
   --dark-blue:#0b315e;
 }
 
-* {
-	box-sizing: border-box;
-}
-
 body
 {
 	background: #eee;
