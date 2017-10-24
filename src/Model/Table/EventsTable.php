@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\I18n\Time;
 
 /**
  * Events Model
@@ -68,5 +69,9 @@ class EventsTable extends Table
             ->notEmpty('coordinate_y');
 
         return $validator;
+    }
+
+    public function getLastEvent() {
+        return $this->find('all')->where(['date >=' => Time::now()->subDays(1)]);
     }
 }
