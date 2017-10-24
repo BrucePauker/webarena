@@ -12,8 +12,8 @@
         <div class="carousel-inner">
             <?php foreach ($fighters as $key => $fighter): ?>
                     <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
-                        <div class="card m-auto" style="width: 20rem;">
-                            <img class="card-img-top rounded" src="/webArena/img/logo.png" alt="Card image cap">
+                        <div class="card text-white bg-dark m-auto" style="width: 20rem;">
+                            <img class="card-img-top img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap">
                             <div class="card-body text-center">
                                 <h4 class="card-title"><?= $fighter->name ?></h4>
                                 <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-dark']) ?>

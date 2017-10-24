@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Events Controller
@@ -46,20 +47,24 @@ class EventsController extends AppController
     /**
      * Add method
      *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     * @param string $name of the event
+     * @param integer coordinate_x default null
+     * @param integer coordiante_y default null
      */
-    public function add()
+    public function add($name, $coordinate_x = null, $coordinate_y = null)
     {
         $event = $this->Events->newEntity();
-        if ($this->request->is('post')) {
-            $event = $this->Events->patchEntity($event, $this->request->getData());
-            if ($this->Events->save($event)) {
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The event could not be saved. Please, try again.'));
+
+        $event->name = $name;
+        $event->date = Time::now();
+        $event->coordinate_y = $coordinate_y;
+        $event->coordinate_x = $coordinate_x;
+
+        if ($this->Events->save($event)) {
+            $this->Flash->success(__('The event has been saved.'));
+            return $this->redirect(['action' => 'index']);
         }
-        $this->set(compact('event'));
-        $this->set('_serialize', ['event']);
+        $this->Flash->error(__('The event could not be saved.'));
     }
 
     /**
