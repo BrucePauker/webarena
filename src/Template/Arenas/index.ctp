@@ -1,16 +1,14 @@
 <div class="container-fluid mt-4">
-    <div class="map justify-content-center">
-    	<table>
-			<tbody>
+    <div class="map">
 			<?php
 				for ($i=0; $i<$size_y; $i++) 
 				{ 
 			?>
-				<tr>
+				<div class="table-row">
 			<?php		
 					for ($j=0; $j<$size_x; $j++) 
 					{ 
-			?>		<td>
+			?>		<div class="col-table">
 						<?php 
                             foreach ($fighters as $id => $fighter) {
                                 if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
@@ -20,11 +18,9 @@
                                 }
                             }
                         ?>		
-                    </td>
+                    </div>
             <?php   } ?>
-				</tr>
+				</div>
 			<?php } ?>
-			</tbody>
-		</table>
     </div>
 </div>

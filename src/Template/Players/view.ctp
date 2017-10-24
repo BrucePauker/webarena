@@ -1,5 +1,5 @@
-<div class="row mt-4">
-	<div class="col-12 col-md-4">
+<div class="row mt-4 justify-content-around">
+	<div class="col-12 col-md-4 mb-3">
 		<div class="card">
 			<div class="card-header">
 				Account
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-4 mb-3">
 		<div class="card">
 			<div class="card-header">
 				Password
@@ -52,16 +52,6 @@
 					</div>
 				</fieldset>
 				<button class="btn btn-warning">Modify password</button>
-			</div>
-		</div>
-	</div>
-	<div class="col-12 col-md-4">
-		<div class="card">
-			<div class="card-header">
-				Fighter
-			</div>
-			<div class="card-body">
-				<img src="">
 			</div>
 		</div>
 	</div>

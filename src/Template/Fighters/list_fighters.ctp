@@ -1,4 +1,7 @@
-<div class="row mt-4">
+<div class="row mt-3 justify-content-center">
+    <button class="btn btn-warning"><?= $this->Html->link('Create Fighter', ['controller' => 'Fighters', 'action' => 'add']) ?></button>
+</div>
+<div class="row mt-1">
     <div class="col-2">
         <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
