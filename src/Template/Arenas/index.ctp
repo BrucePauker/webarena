@@ -1,19 +1,24 @@
 <div class="container-fluid mt-4">
     <div class="map justify-content-center">
-    	<?php
-    	$out  = "";
-		$out .= "<table>";
-		foreach($grid as $key => $element){
-		    $out .= "<tr>";
-		    foreach($element as $subkey => $subelement){
-		        $out .= "<td>$subelement</td>";
-		    }
-		    $out .= "</tr>";
-		}
-		$out .= "</table>";
-
-		echo $out;
-		?>
+    	<table>
+			<tbody>
+			<?php
+				for ($i=1; $i<=$size_y; $i++) 
+				{ 
+			?>
+				<tr>
+			<?php		
+					for ($j=1; $j<=$size_x; $j++) 
+					{ 
+			?>		<td>
+						<?php echo 'ligne '. $i .', colonne '. $j;
+			?>		</td>
+			?>
+				</tr>
+			<?php
+			?>
+			</tbody>
+		</table>
     </div>
 </div>
 
