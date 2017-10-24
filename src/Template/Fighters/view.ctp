@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-4 text-center align-self-center">
-        <img class="rounded" src="/webArena/img/logo.png" alt="Card image cap" width='150'>
+        <img class="img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap" width='150'>
         <h5><?= $fighter->name ?></h5>
         <div class="row">
             <div class="col-6">

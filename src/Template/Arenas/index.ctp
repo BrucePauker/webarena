@@ -13,7 +13,7 @@
                             foreach ($fighters as $id => $fighter) {
                                 if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
                                 {
-                                    echo $fighter->name;
+                                    echo '<img class="img-fluid" src="/webArena/img/fighter.png" alt="Wood" width="50">';
                                     break;
                                 }
                             }

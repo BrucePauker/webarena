@@ -40,8 +40,9 @@ a:hover{
 	float: left;
     border: .5px solid black;
     width: calc(100% / 15);
-	height:4rem;
-    text-align:center;
+	height: 4rem;
+    text-align: center;
+	background: url(../webroot/img/sand.jpg) no-repeat;
 }
 
 .custom-file-control:before{
@@ -54,3 +55,4 @@ a:hover{
 #index{
 	background-image: url(/webroot/img/index.jpg) center no-repeat;
 }
+
