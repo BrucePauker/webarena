@@ -1,35 +1,28 @@
-body
-{
+body{
 	background: #eee;
 }
 
-
-fieldset[disabled] .form-control:hover
-{
+fieldset[disabled] .form-control:hover{
 	cursor: not-allowed;
 }
 
-.nav button
-{
+.nav button{
 	margin-left:1rem;
 	margin-right: 1rem;
 	margin-bottom: 0;
 }
 
-a
-{
+a{
 	text-decoration: none;
 	color: white;
 }
 
-a:hover
-{
+a:hover{
 	text-decoration: none;
 	color: white;
 }
 
-.map
-{
+.map{
 	overflow-x: scroll;
 }
 
@@ -56,4 +49,8 @@ a:hover
 }
 .custom-file-control:after{
   content: "Choose file...";
+}
+
+#index{
+	background-image: url(/webroot/img/index.jpg) center no-repeat;
 }
