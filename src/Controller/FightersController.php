@@ -29,7 +29,7 @@ class FightersController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function listFighters() {
-        $fighters = $this->Fighters->find('all')->where(['player_id' => $this->Auth->user('id')])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+        $fighters = $this->Fighters->loadFightersPlayer($this->Auth->user('id'));
         $this->set('fighters', $fighters);
         $this->set('_serialize', ['fighter']);
     }

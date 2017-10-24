@@ -54,40 +54,5 @@ class Fighter extends Entity
         'guild' => true,
         'messages' => true,
         'tools' => true,
-        'size_x' => false,
-        'size_y'=> false
     ];
-
-    function getSizeX(){
-        return 15;
-    }
-
-    function getSizeY(){
-        return 10;
-    }
-
-    /**
-     * Check if a position on the map is free
-     *
-     * @param $x integer
-     * @param $y intger
-     * @return boolean
-     */
-    public function isPositionFree($x, $y)
-    {
-        if($x > $this->getSizeX() || $x < 0)
-            return false;
-        else if($y < 0 || $y > $this->getSizeY())
-            return false;
-
-        $fighters = $this->fighters->find('all')->toArray();
-
-        foreach ($fighters as $fighter)
-        {
-            if($fighter->coordinate_x == $x || $fighter->coordinate_y == $y)
-                return false;
-        }
-
-        return true;
-    }
 }

@@ -138,5 +138,59 @@ class FightersTable extends Table
         return $rules;
     }
 
-    
+    public function getSizeX(){
+        return 15;
+    }
+
+    public function getSizeY(){
+        return 10;
+    }
+
+    /**
+     * Check if a position on the map is free
+     *
+     * @param $x integer
+     * @param $y intger
+     * @return boolean
+     */
+    public function isPositionFree($x, $y)
+    {
+        if($x > $this->getSizeX() || $x < 0)
+            return false;
+        else if($y < 0 || $y > $this->getSizeY())
+            return false;
+
+        $fighters = $this->find('all')->toArray();
+
+        foreach ($fighters as $fighter)
+        {
+            if($fighter->coordinate_x == $x || $fighter->coordinate_y == $y)
+                return false;
+        }
+
+        return true;
+    }
+
+    /**
+    * Laod the fighters of the connected player
+    *
+    * @param integer id of the player 
+    * @return Array Cake\ORM\Entity\Fighter
+    */
+    public function loadFightersPlayer($playerId) {
+        $fighters = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+
+        return $fighters;
+    }
+
+    /**
+    * Laod the all the fighters of the database
+    *
+    * @return Array Cake\ORM\Entity\Fighter
+    */
+    public function loadAllFighters() {
+        $fighters = $this->find('all')->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+
+        return $fighters;
+    }    
 }

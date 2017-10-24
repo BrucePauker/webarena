@@ -18,12 +18,17 @@ class ArenasController extends AppController
      */
     public function index()
     {
-        $fighter = $this->loadModel()->Fighter;
-        $size_x = $fighter->getSizeX();
-        $size_y = $fighter->getSizeY();
+        $fighterTable = $this->loadModel('Fighters');
+        
+        // Load the size of the grid
+        $size_x = $fighterTable->getSizeX();
+        $size_y = $fighterTable->getSizeY();
+
+        //load the fighter of the current player
+        $fighters = $fighterTable->loadAllFighters();
+        
         $this->set('size_x', $size_x);
         $this->set('size_y', $size_y);
+        $this->set('fighters', $fighters);
     }
-
-    
 }
