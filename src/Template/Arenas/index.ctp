@@ -1,6 +1,25 @@
 <div class="container-fluid mt-4">
     <div class="map justify-content-center">
-    	<div class="row-1">
+    	<?php
+    	$out  = "";
+		$out .= "<table>";
+		foreach($grid as $key => $element){
+		    $out .= "<tr>";
+		    foreach($element as $subkey => $subelement){
+		        $out .= "<td>$subelement</td>";
+		    }
+		    $out .= "</tr>";
+		}
+		$out .= "</table>";
+
+		echo $out;
+		?>
+    </div>
+</div>
+
+
+
+<div class="row-1">
     		<div class="column-1"></div>
     		<div class="column-2"></div>
     		<div class="column-3"></div>
@@ -170,5 +189,3 @@
     		<div class="column-14"></div>
     		<div class="column-15"></div>
     	</div>
-    </div>
-</div>

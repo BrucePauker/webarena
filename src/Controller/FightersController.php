@@ -49,6 +49,7 @@ class FightersController extends AppController
 
         $this->set('fighter', $fighter);
         $this->set('_serialize', ['fighter']);
+
     }
 
     /**
@@ -70,7 +71,7 @@ class FightersController extends AppController
             do {
                 $x = rand(0, 14);
                 $y = rand(0, 9);
-            }while(!$this->arenaController->isPositionFree($x, $y));
+            }while(!$this->Fighters->isPositionFree($x, $y));
             $fighter->coordinate_x = $x;
             $fighter->coordinate_y = $y;
             $fighter->player_id = $this->Auth->user('id');
