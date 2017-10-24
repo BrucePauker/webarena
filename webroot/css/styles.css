@@ -35,3 +35,12 @@ a:hover
 	text-decoration: none;
 	color: var(--black);
 }
+
+
+[class^='column-'] {
+    display: table-cell;
+    border: .5px solid black;
+    width: calc(100% / 14);
+	height:2rem;
+    text-align:center;
+}

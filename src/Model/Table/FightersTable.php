@@ -137,4 +137,9 @@ class FightersTable extends Table
 
         return $rules;
     }
+
+    function getSize()
+    {
+        return [10,15];
+    }
 }

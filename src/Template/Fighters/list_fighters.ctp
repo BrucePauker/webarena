@@ -5,20 +5,17 @@
             <span class="sr-only">Previous</span>
         </a>
     </div>
-
     <div id="carouselControls" class="carousel slide col-8" data-ride="carousel">
         <div class="carousel-inner">
             <?php foreach ($fighters as $key => $fighter): ?>
                     <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
-                         <a href="">
-                            <div class="card m-auto" style="width: 20rem;">
-                                <img class="card-img-top" src="/webArena/img/logo.png" alt="Card image cap">
-                                <div class="card-body text-center">
-                                    <h4 class="card-title"><?= $fighter->name ?></h4>
-                                    <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-light']) ?>
-                                </div>
+                        <div class="card m-auto" style="width: 20rem;">
+                            <img class="card-img-top" src="/webArena/img/logo.png" alt="Card image cap">
+                            <div class="card-body text-center">
+                                <h4 class="card-title"><?= $fighter->name ?></h4>
+                                <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-light']) ?>
                             </div>
-                        </a>
+                        </div>
                     </div>
             <?php endforeach; ?>
         </div>
