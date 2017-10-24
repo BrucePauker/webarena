@@ -54,8 +54,6 @@ class EventsController extends AppController
         if ($this->request->is('post')) {
             $event = $this->Events->patchEntity($event, $this->request->getData());
             if ($this->Events->save($event)) {
-                $this->Flash->success(__('The event has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
