@@ -6,12 +6,6 @@ fieldset[disabled] .form-control:hover{
 	cursor: not-allowed;
 }
 
-.nav button{
-	margin-left:1rem;
-	margin-right: 1rem;
-	margin-bottom: 0;
-}
-
 a{
 	text-decoration: none;
 	color: white;
@@ -22,21 +16,25 @@ a:hover{
 	color: white;
 }
 
-.map{
+
+
+/* MAP CSS */
+
+.grid{
 	overflow-x: scroll;
 }
 
 .table-row {
-	min-width: 856px;
+	min-width: 840px;
 }
 
-.table-row::after {
+[class*="row-table"]::after {
     content: "";
     clear: both;
     display: table;
 }
 
-.col-table {
+[class*="col-table"] {
 	float: left;
     border: .5px solid black;
     width: calc(100% / 15);
@@ -46,12 +44,58 @@ a:hover{
 	background-size: 100% 4rem;
 }
 
+
+.col-table-0 {
+	background: url(../webroot/img/left_bordure.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.col-table-14 {
+	background: url(../webroot/img/right_bordure.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.table-row-0>.col-table-1, .table-row-0>.col-table-2, .table-row-0>.col-table-3, .table-row-0>.col-table-4, .table-row-0>.col-table-5, .table-row-0>.col-table-6, .table-row-0>.col-table-7, .table-row-0>.col-table-8, .table-row-0>.col-table-9, .table-row-0>.col-table-10, .table-row-0>.col-table-11, .table-row-0>.col-table-12, .table-row-0>.col-table-13{
+	background: url(../webroot/img/top_bordure.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.table-row-9>.col-table-1, .table-row-9>.col-table-2, .table-row-9>.col-table-3, .table-row-9>.col-table-4, .table-row-9>.col-table-5, .table-row-9>.col-table-6, .table-row-9>.col-table-7, .table-row-9>.col-table-8, .table-row-9>.col-table-9, .table-row-9>.col-table-10, .table-row-9>.col-table-11, .table-row-9>.col-table-12, .table-row-9>.col-table-13{
+	background: url(../webroot/img/bottom_bordure.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.table-row-0>.col-table-0{
+	background: url(../webroot/img/left_hand_corner.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.table-row-0>.col-table-14{
+	background: url(../webroot/img/right_hand_corner.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.table-row-9>.col-table-0{
+	background: url(../webroot/img/left_bottom_corner.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+.table-row-9>.col-table-14{
+	background: url(../webroot/img/right_bottom_corner.jpg) center no-repeat;
+	background-size: 100% 4rem;
+}
+
+
+/* ----------------------------- */
+
 .custom-file-control:before{
   content: "Browse";
 }
 .custom-file-control:after{
   content: "Choose file...";
 }
+
+
 
 #index{
 	background: url(../webroot/img/index.jpg) center no-repeat;

@@ -150,25 +150,30 @@ class FightersTable extends Table
      * Check if a position on the map is free
      *
      * @param $x integer
-     * @param $y intger
+     * @param $y integer
      * @return boolean
      */
     public function isPositionFree($x, $y)
     {
         if($x > $this->getSizeX() || $x < 0)
             return false;
-        else if($y < 0 || $y > $this->getSizeY())
+        if($y < 0 || $y > $this->getSizeY())
             return false;
 
         $fighters = $this->find('all')->toArray();
 
         foreach ($fighters as $fighter)
         {
-            if($fighter->coordinate_x == $x || $fighter->coordinate_y == $y)
+            if($fighter->coordinate_x == $x && $fighter->coordinate_y == $y)
                 return false;
         }
 
         return true;
+    }
+
+    public function getCurrentFighter($playerId) {
+        $fighters = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+        return $fighters[0];
     }
 
     /**
