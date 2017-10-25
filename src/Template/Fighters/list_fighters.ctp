@@ -4,7 +4,7 @@
 <div class="row mt-1">
     <div class="col-2">
         <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-            <img class="carousel-control-prev-icon img-fluid" src="/webArena/img/previous.png" alt="Previous">
+            <img class="img-fluid" src="/webArena/img/previous.png" alt="Previous">
         </a>
     </div>
     <div id="carouselControls" class="carousel slide col-8" data-ride="carousel">
@@ -24,7 +24,7 @@
     </div>
     <div class="col-2">
         <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-            <img class="carousel-control-next-icon img-fluid" src="/webArena/img/forward.png" alt="Next">
+            <img class="img-fluid" src="/webArena/img/forward.png" alt="Next">
         </a>
     </div>
 </div>
