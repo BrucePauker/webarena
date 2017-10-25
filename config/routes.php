@@ -49,7 +49,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'index', and we pass a param to select the view file
      * to use (in this case, src/Template/Arenas/view.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Arenas', 'action' => 'index']);
+    $routes->connect('/', ['controller' => 'Index', 'action' => 'index']);
 
     /**
      * Route for the login and logout function

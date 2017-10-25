@@ -1,0 +1,35 @@
+<?php
+namespace App\Controller;
+
+use App\Controller\AppController;
+use Cake\Event\Event;
+
+/**
+ * Index Controller
+ *
+ *
+ * @method \App\Model\Entity\Index[] paginate($object = null, array $settings = [])
+ */
+class IndexController extends AppController
+{
+
+    /**
+     * Filter the event before the request happenes
+     *
+     * @param Event $event
+     */
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index']);
+    }
+
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|void
+     */
+    public function index()
+    {
+
+    }
+}
