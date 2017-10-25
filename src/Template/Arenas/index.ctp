@@ -2,19 +2,19 @@
 	<div class="row">
 		<div class="player-button col-12 col-md-3 align-self-center">
 			<div class="row justify-content-center">
-				<button type="button" class="btn btn-success">Haut</button>
+                <?= $this->Html->link('Up', ['controller' => 'Arenas', 'action' => 'makeAction/up'], ['class'=>'btn btn-success']) ?>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-6 text-center">
-					<button type="button" class="btn btn-success">Gauche</button>
-				</div>
+                    <?= $this->Html->link('Left', ['controller' => 'Arenas', 'action' => 'makeAction/left'], ['class'=>'btn btn-success']) ?>
+                </div>
 				<div class="col-6 text-center">
-					<button type="button" class="btn btn-success">Droite</button>
-				</div>
+                    <?= $this->Html->link('Right', ['controller' => 'Arenas', 'action' => 'makeAction/right'], ['class'=>'btn btn-success']) ?>
+                </div>
 			</div>
 			<div class="row justify-content-center">
-				<button type="button" class="btn btn-success">Bas</button>
-			</div>
+                <?= $this->Html->link('Down', ['controller' => 'Arenas', 'action' => 'makeAction/down'], ['class'=>'btn btn-success']) ?>
+            </div>
 	    </div>
 	    <div class="col-12 col-md-9 grid">
 				<?php
