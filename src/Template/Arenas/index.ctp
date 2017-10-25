@@ -26,14 +26,16 @@
 						for ($j=0; $j<$size_x; $j++) 
 						{ 
 				?>		<div class="col-table-<?php echo $j ?>">
-							<?php 
-	                            foreach ($fighters as $id => $fighter) {
-	                                if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
-	                                {
-	                                    echo '<img class="img-fluid" src="/webArena/img/fighter.png" alt="Wood" width="50">';
-	                                    break;
-	                                }
-	                            }
+							<?php
+                                if(isset($fighters)):
+                                    foreach ($fighters as $id => $fighter) {
+                                        if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
+                                        {
+                                            echo '<img class="img-fluid" src="/webArena/img/fighter.png" alt="Wood" width="50">';
+                                            break;
+                                        }
+                                    }
+                                endif;
 	                        ?>		
 	                    </div>
 	            <?php   } ?>

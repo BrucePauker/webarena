@@ -2,11 +2,11 @@
     <div class="row mt-5 justify-content-center">
         <div class="card w-75">
             <div class="card-header">
-                Create your Fighter ! 
+                Create your Guild ! 
             </div>
             <div class="card-body">
                 <div class="players form">
-                    <?= $this->Form->create($fighter) ?>
+                    <?= $this->Form->create($guild) ?>
                     <fieldset>
                         <?= $this->Form->control('name',['class'=>'form-control']) ?>
                     </fieldset>

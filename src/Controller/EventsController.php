@@ -123,7 +123,7 @@ class EventsController extends AppController
 
         foreach ($eventsOnTime as $eventOnTime) {
             foreach ($fighters as $fighter) {
-                if($fighter->isOnSight($fighter, $eventOnTime->coordinate_x, $eventOnTime->coordinate_y)) {
+                if($this->loadModel('Fighters')->isOnSight($fighter, $eventOnTime->coordinate_x, $eventOnTime->coordinate_y)) {
                     array_push($events, $eventOnTime);
                     break;
                 }

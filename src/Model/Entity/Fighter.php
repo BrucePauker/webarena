@@ -55,36 +55,4 @@ class Fighter extends Entity
         'messages' => true,
         'tools' => true,
     ];
-
-    /**
-     * Return the distance between an item and a fighter
-     * Calculated by Manhattan distance
-     *
-     * @param $xA integer position x of the fighter
-     * @param $xB integer position x of the object
-     * @param $yA integer position y of the fighter
-     * @param $yB integer position y of the object
-     * @return integer distance between object
-     */
-    public function distance($xA, $xB, $yA, $yB)
-    {
-        $distance = abs($xB - $xA) + abs($yB - $yA);
-
-        return $distance;
-    }
-
-    /**
-     * Tell if the item is on sight
-     *
-     * @param $fighter $this
-     * @param $xB integer
-     * @param $yB integer
-     * @return boolean
-     */
-    public function isOnSight($fighter, $xB, $yB) {
-        if($fighter->skill_sight >= $this->distance($fighter->coordinate_x, $xB, $fighter->coordinate_y, $yB))
-            return true;
-
-        return false;
-    }
 }
