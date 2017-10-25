@@ -1,6 +1,6 @@
-<div class="container-fluid mt-4">
+<div class="map mt-4">
 	<div class="row">
-		<div class="player-button col-3 align-self-center">
+		<div class="player-button col-12 col-md-3 align-self-center">
 			<div class="row justify-content-center">
 				<button type="button" class="btn btn-success">Haut</button>
 			</div>
@@ -16,16 +16,16 @@
 				<button type="button" class="btn btn-success">Bas</button>
 			</div>
 	    </div>
-	    <div class="col-9 map">
+	    <div class="col-12 col-md-9 grid">
 				<?php
 					for ($i=0; $i<$size_y; $i++) 
 					{ 
 				?>
-					<div class="table-row">
+					<div class="table-row-<?php echo $i ?>">
 				<?php		
 						for ($j=0; $j<$size_x; $j++) 
 						{ 
-				?>		<div class="col-table">
+				?>		<div class="col-table-<?php echo $j ?>">
 							<?php 
 	                            foreach ($fighters as $id => $fighter) {
 	                                if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
