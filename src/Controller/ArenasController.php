@@ -88,7 +88,7 @@ class ArenasController extends AppController
                 $fighter->coordinate_y = $fighter->coordinate_y + 1;
                 if($this->Fighters->save($fighter)) {
                     $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved up!', $fighter->coordinate_x, $fighter->coordinate_y + 1);
+                    $this->eventsController->add($fighter->name.' moved down!', $fighter->coordinate_x, $fighter->coordinate_y + 1);
                 }
             }
             else
@@ -101,7 +101,7 @@ class ArenasController extends AppController
                 $fighter->coordinate_x = $fighter->coordinate_x - 1;
                 if($this->Fighters->save($fighter)) {
                     $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved up!', $fighter->coordinate_x - 1, $fighter->coordinate_y);
+                    $this->eventsController->add($fighter->name.' moved left!', $fighter->coordinate_x - 1, $fighter->coordinate_y);
                 }
             }
             else
@@ -114,7 +114,7 @@ class ArenasController extends AppController
                 $fighter->coordinate_x = $fighter->coordinate_x + 1;
                 if($this->Fighters->save($fighter)) {
                     $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved up!', $fighter->coordinate_x + 1, $fighter->coordinate_y);
+                    $this->eventsController->add($fighter->name.' moved right!', $fighter->coordinate_x + 1, $fighter->coordinate_y);
                 }
             }
             else
