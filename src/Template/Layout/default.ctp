@@ -42,7 +42,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="">
+        <?php if(!$this->request->session()->read('Auth.User.id')): ?>
+            <a class="navbar-brand" href="<?= $this->Url->build([
+                '_name' => 'index',
+            ]); ?>">
+        <?php else: ?>
+                <a class="navbar-brand" href="<?= $this->Url->build([
+                    'controller' => 'Arenas',
+                    'action' => 'index'
+                ]); ?>">
+        <?php endif; ?>
             <img src="/webArena/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Web Arena
         </a>
