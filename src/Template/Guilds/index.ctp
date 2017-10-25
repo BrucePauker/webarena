@@ -24,6 +24,5 @@
         <a href="">
             <img src="/webArena/img/add.png" class="float-right" width="50">
         </a>
-        
     </div>
 </div>
