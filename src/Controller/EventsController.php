@@ -21,7 +21,7 @@ class EventsController extends AppController
      */
     public function index()
     {
-        $events = $this->paginate($this->Events->getLastEvent());
+        $events = $this->getEventsOnSight();
 
         $this->set(compact('events'));
         $this->set('_serialize', ['events']);
@@ -61,7 +61,6 @@ class EventsController extends AppController
         $event->coordinate_x = $coordinate_x;
 
         if ($this->Events->save($event)) {
-            $this->Flash->success(__('The event has been saved.'));
             return $this->redirect(['action' => 'index']);
         }
         $this->Flash->error(__('The event could not be saved.'));
@@ -110,5 +109,27 @@ class EventsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Return all the events on sight less than 24 hours ago
+     *
+     * @return array App\Model\Entity\Event
+     */
+    public function getEventsOnSight(){
+        $eventsOnTime = $this->Events->getLastEvent();
+        $fighters = $this->loadModel('Fighters')->loadFightersPlayer($this->Auth->user('id'));
+        $events = Array();
+
+        foreach ($eventsOnTime as $eventOnTime) {
+            foreach ($fighters as $fighter) {
+                if($fighter->isOnSight($fighter, $eventOnTime->coordinate_x, $eventOnTime->coordinate_y)) {
+                    array_push($events, $eventOnTime);
+                    break;
+                }
+            }
+        }
+
+        return $events;
     }
 }
