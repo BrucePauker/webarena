@@ -71,7 +71,12 @@ class EventsTable extends Table
         return $validator;
     }
 
+    /**
+     * Return all the events that are less than 24 hours ago
+     *
+     * @return array $this
+     */
     public function getLastEvent() {
-        return $this->find('all')->where(['date >=' => Time::now()->subDays(1)]);
+        return $this->find('all')->where(['date >=' => Time::now()->subDays(1)])->toArray();
     }
 }

@@ -13,7 +13,7 @@
             <div class="card text-white bg-dark w-100 mt-5">
               <div class="card-header">Skills</div>
               <div class="card-body">
-                <p class="card-text">Sight Skill : <?= $fighter->sight ?></p>
+                <p class="card-text">Sight Skill : <?= $fighter->skill_sight ?></p>
                 <p class="card-text">Strenght Skill : <?= $fighter->skill_strength ?></p>
               </div>
             </div>
