@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-5">
         <?php foreach ($events as $event): ?>
             <blockquote class="blockquote">
               <p class="mb-0"><?php echo $event->name ?></p>
