@@ -172,7 +172,7 @@ class FightersTable extends Table
     }
 
     /**
-    * Laod the fighters of the connected player
+    * Load the fighters of the connected player
     *
     * @param integer id of the player 
     * @return Array Cake\ORM\Entity\Fighter

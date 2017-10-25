@@ -108,4 +108,18 @@ class GuildsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    /**
+     * Join a guild with a specific fighter
+     *
+     * @param $idGuild intger
+     * @param $idFighter integer
+     */
+    public function join($idGuild) {
+        $figther = $this->loadModel('Fighter')->getActiveFighter();
+        $this->loadModel('Fighter')->update()->set(['guild_id' => $idGuild])->where(['id' => $figther->id])->execute();
+
+        return $this->redirect(['action' => 'view/'.$idGuild]);
+    }
 }
