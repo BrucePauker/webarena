@@ -172,6 +172,18 @@ class FightersTable extends Table
     }
 
     /**
+     * Get the current fighter of the player
+     *
+     * @param integer $id of the player
+     * @return $this
+     */
+    public function getActiveFighter($playerId) {
+        $fighters = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+
+        return $fighters[0];
+    }
+
+    /**
     * Load the fighters of the connected player
     *
     * @param integer id of the player 

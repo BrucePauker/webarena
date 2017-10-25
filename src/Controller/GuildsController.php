@@ -117,8 +117,8 @@ class GuildsController extends AppController
      * @param $idFighter integer
      */
     public function join($idGuild) {
-        $figther = $this->loadModel('Fighter')->getActiveFighter();
-        $this->loadModel('Fighter')->update()->set(['guild_id' => $idGuild])->where(['id' => $figther->id])->execute();
+        $fighter = $this->loadModel('Fighters')->getActiveFighter($this->Auth->user('id'));
+        $this->loadModel('Fighters')->query()->update()->set(['guild_id' => $idGuild])->where(['id' => $fighter->id])->execute();
 
         return $this->redirect(['action' => 'view/'.$idGuild]);
     }
