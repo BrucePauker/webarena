@@ -36,14 +36,17 @@ class ArenasController extends AppController
      */
     public function index()
     {
-        $fighterTable = $this->loadModel('Fighters');
-        
         // Load the size of the grid
-        $size_x = $fighterTable->getSizeX();
-        $size_y = $fighterTable->getSizeY();
+        $size_x = $this->fightersModel->getSizeX();
+        $size_y = $this->fightersModel->getSizeY();
 
-        //load the fighter of the current player
-        $fighters = $fighterTable->loadAllFighters();
+        $fighter = $this->fightersModel->getCurrentFighter($this->Auth->user('id'));
+
+        if($fighter)
+            //load the fighter of the current player
+            $fighters = $this->fightersModel->loadAllFightersOnSight($fighter);
+        else
+            $fighters = null;
         
         $this->set('size_x', $size_x);
         $this->set('size_y', $size_y);
@@ -57,6 +60,13 @@ class ArenasController extends AppController
      */
     public function makeAction($action) {
         $fighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
+
+        if(!$fighter)
+        {
+            $this->Flash->error(__('You don\'t have a current fighter.'));
+            $this->redirect(['action' => 'index']);
+            return;
+        }
 
         if($action == 'up')
         {

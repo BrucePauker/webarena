@@ -172,20 +172,12 @@ class FightersTable extends Table
     }
 
     public function getCurrentFighter($playerId) {
-        $fighters = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
-        return $fighters[0];
-    }
+        $fighter = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
 
-    /**
-     * Get the current fighter of the player
-     *
-     * @param integer $id of the player
-     * @return $this
-     */
-    public function getActiveFighter($playerId) {
-        $fighters = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
+        if(!$fighter)
+            return null;
 
-        return $fighters[0];
+        return $fighter[0];
     }
 
     /**
@@ -201,7 +193,7 @@ class FightersTable extends Table
     }
 
     /**
-    * Laod the all the fighters of the database
+    * Load the all the fighters of the database
     *
     * @return Array Cake\ORM\Entity\Fighter
     */
@@ -209,5 +201,54 @@ class FightersTable extends Table
         $fighters = $this->find('all')->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
 
         return $fighters;
-    }    
+    }
+
+    /**
+     * Load the all the fighters of the database
+     *
+     * @param Cake\ORM\Entity\Fighter
+     * @return Array Cake\ORM\Entity\Fighter
+     */
+    public function loadAllFightersOnSight($fighter) {
+        $fighters = $this->loadAllFighters();
+
+        foreach ($fighters as $key => $fighterItem) {
+            if(!$this->isOnSight($fighter, $fighterItem->coordinate_x, $fighterItem->coordinate_y))
+                unset($fighters[$key]);
+        }
+
+        return $fighters;
+    }
+
+    /**
+     * Return the distance between an item and a fighter
+     * Calculated by Manhattan distance
+     *
+     * @param $xA integer position x of the fighter
+     * @param $xB integer position x of the object
+     * @param $yA integer position y of the fighter
+     * @param $yB integer position y of the object
+     * @return integer distance between object
+     */
+    public function distance($xA, $xB, $yA, $yB)
+    {
+        $distance = abs($xB - $xA) + abs($yB - $yA);
+
+        return $distance;
+    }
+
+    /**
+     * Tell if the item is on sight
+     *
+     * @param $fighter $this
+     * @param $xB integer
+     * @param $yB integer
+     * @return boolean
+     */
+    public function isOnSight($fighter, $xB, $yB) {
+        if($fighter->skill_sight >= $this->distance($fighter->coordinate_x, $xB, $fighter->coordinate_y, $yB))
+            return true;
+
+        return false;
+    }
 }
