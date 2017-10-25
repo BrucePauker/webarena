@@ -7,6 +7,7 @@
                 </div>
                 <div class="card-body">
                     <?= $this->Html->link('See more', ['controller' => 'Guilds', 'action' => 'view/'.$guild->id], ['class'=>'btn btn-dark']) ?>
+                    <?= $this->Html->link('Join', ['controller' => 'Guilds', 'action' => 'join/'.$guild->id], ['class'=>'btn btn-dark']) ?>
                 </div>
             </div>
         <?php endforeach;?>
