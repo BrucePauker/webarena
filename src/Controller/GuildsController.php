@@ -124,4 +124,16 @@ class GuildsController extends AppController
 
         return $this->redirect(['action' => 'view/'.$idGuild]);
     }
+
+    /**
+     * Leave a guild
+     *
+     * @return Action index
+     */
+    public function leave() {
+        $fighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
+        $this->loadModel('Fighters')->query()->update()->set(['guild_id' => null])->where(['id' => $fighter->id])->execute();
+
+        return $this->redirect(['action' => 'index']);
+    }
 }
