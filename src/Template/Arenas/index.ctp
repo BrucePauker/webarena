@@ -15,6 +15,10 @@
 			<div class="row justify-content-center">
                 <?= $this->Html->link('Down', ['controller' => 'Arenas', 'action' => 'makeAction/down'], ['class'=>'btn btn-success']) ?>
             </div>
+            <div class="row mt-3 justify-content-center">
+            	<button class="btn btn-dark">Attack</button>
+            </div>
+
 	    </div>
 	    <div class="col-12 col-md-9 grid">
 				<?php
