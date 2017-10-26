@@ -40,8 +40,9 @@ class GuildsController extends AppController
         $guild = $this->Guilds->get($id, [
             'contain' => ['Fighters']
         ]);
+        $currentFighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
 
-        $this->set('guild', $guild);
+        $this->set(compact(['guild', 'currentFighter']));
         $this->set('_serialize', ['guild']);
     }
 

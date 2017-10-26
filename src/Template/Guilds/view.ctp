@@ -26,3 +26,14 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+    <?php $isIn = false; ?>
+    <?php foreach($guild->fighters as $fighter): ?>
+        <?php if($currentFighter->id == $fighter->id): ?>
+            <?php $isIn = true; break; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <?php if($isIn): ?>
+        <?= $this->Html->link('Leave', ['controller' => 'Guilds', 'action' => 'leave/'.$guild->id], ['class'=>'btn btn-danger']) ?>
+    <?php else: ?>
+        <?= $this->Html->link('Join', ['controller' => 'Guilds', 'action' => 'join/'.$guild->id], ['class'=>'btn btn-success']) ?>
+    <?php endif ?>
