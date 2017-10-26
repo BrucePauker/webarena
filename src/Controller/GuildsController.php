@@ -20,9 +20,11 @@ class GuildsController extends AppController
      */
     public function index()
     {
-        $guilds = $this->paginate($this->Guilds);
+        $guilds = $this->Guilds->find('all')->contain(['Fighters']);
 
-        $this->set(compact('guilds'));
+        $currentFighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
+
+        $this->set(compact(['guilds', 'currentFighter']));
         $this->set('_serialize', ['guilds']);
     }
 
@@ -117,7 +119,7 @@ class GuildsController extends AppController
      * @param $idFighter integer
      */
     public function join($idGuild) {
-        $fighter = $this->loadModel('Fighters')->getActiveFighter($this->Auth->user('id'));
+        $fighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
         $this->loadModel('Fighters')->query()->update()->set(['guild_id' => $idGuild])->where(['id' => $fighter->id])->execute();
 
         return $this->redirect(['action' => 'view/'.$idGuild]);
