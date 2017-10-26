@@ -58,8 +58,7 @@ class GuildsController extends AppController
             $guild = $this->Guilds->patchEntity($guild, $this->request->getData());
             if ($this->Guilds->save($guild)) {
                 $this->Flash->success(__('The guild has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view/'.$guild->id]);
             }
             $this->Flash->error(__('The guild could not be saved. Please, try again.'));
         }

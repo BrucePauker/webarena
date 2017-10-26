@@ -30,8 +30,35 @@
     </div>
 
     <div class="create-guilde position-absolute fixed-bottom mb-5 mr-5 float-right">
-        <a href="">
+        <a data-toggle="modal" data-target="#ModalGuild">
             <img src="/webArena/img/add.png" class="float-right" width="50">
         </a>
     </div>
+</div>
+
+
+
+<div class="modal fade" id="ModalGuild" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="GuildModalLabel">Create a Guild</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="guild form">
+            <?= $this->Form->create($guild) ?>
+            <fieldset>
+                <?= $this->Form->control('name',['class'=>'form-control']) ?>
+            </fieldset>
+            <?= $this->Form->button(__('Add'),['class'=>'btn btn-primary mt-4 float-right']); ?>
+            <?= $this->Form->end() ?>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
 </div>
