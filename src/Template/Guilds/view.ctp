@@ -1,3 +1,22 @@
+<?php $isIn = false; ?>
+    <?php foreach($guild->fighters as $fighter): ?>
+        <?php if($currentFighter->id == $fighter->id): ?>
+            <?php $isIn = true; break; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-6 text-center">
+            <?php if($isIn): ?>
+                <?= $this->Html->link('Leave', ['controller' => 'Guilds', 'action' => 'leave/'.$guild->id], ['class'=>'btn btn-danger']) ?>
+            <?php else: ?>
+                <?= $this->Html->link('Join', ['controller' => 'Guilds', 'action' => 'join/'.$guild->id], ['class'=>'btn btn-success']) ?>
+            <?php endif ?>
+        </div>
+        
+    </div>
+    
+
+
 <div class="row mt-1">
     <div class="col-2">
         <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
@@ -5,7 +24,7 @@
             <span class="sr-only">Previous</span>
         </a>
     </div>
-    <div id="carouselControls" class="carousel slide col-8" data-ride="carousel">
+    <div id="carouselControls" class="carousel slide col-8 mb-5" data-ride="carousel">
     <div class="carousel-inner">
         <?php foreach ($guild->fighters as $key => $fighter): ?>
             <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
@@ -26,14 +45,4 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-    <?php $isIn = false; ?>
-    <?php foreach($guild->fighters as $fighter): ?>
-        <?php if($currentFighter->id == $fighter->id): ?>
-            <?php $isIn = true; break; ?>
-        <?php endif; ?>
-    <?php endforeach; ?>
-    <?php if($isIn): ?>
-        <?= $this->Html->link('Leave', ['controller' => 'Guilds', 'action' => 'leave/'.$guild->id], ['class'=>'btn btn-danger']) ?>
-    <?php else: ?>
-        <?= $this->Html->link('Join', ['controller' => 'Guilds', 'action' => 'join/'.$guild->id], ['class'=>'btn btn-success']) ?>
-    <?php endif ?>
+    

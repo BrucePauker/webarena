@@ -18,7 +18,7 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                             <?php if($isIn): ?>
-                                <?= $this->Html->link('Leave', ['controller' => 'Guilds', 'action' => 'leave/'.$guild->id], ['class'=>'btn btn-danger']) ?>
+                                <?= $this->Html->link('Leave', ['controller' => 'Guilds', 'action' => 'leave/'.$guild->id], ['class'=>'btn btn-danger ml-1']) ?>
                             <?php else: ?>
                                 <?= $this->Html->link('Join', ['controller' => 'Guilds', 'action' => 'join/'.$guild->id], ['class'=>'btn btn-success']) ?>
                             <?php endif ?>
