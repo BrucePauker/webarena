@@ -240,7 +240,7 @@ class FightersTable extends Table
     /**
      * Tell if the item is on sight
      *
-     * @param $fighter $this
+     * @param $fighter \App\Model\Entity\Fighter
      * @param $xB integer
      * @param $yB integer
      * @return boolean
