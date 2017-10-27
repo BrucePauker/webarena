@@ -65,6 +65,7 @@
       </div>
         <?= $this->Form->create($fighter, ['type' => $fighter->file]) ?>
           <div class="modal-body text-center">
+            <img src="/webArena/img/logo.png" class="rounded" width="300">
             <label class="custom-file text-left">
                 <?= $this->Form->input('Avatar', ['type' => file, 'class' => 'file']) ?>
               <span class="custom-file-control"></span>
