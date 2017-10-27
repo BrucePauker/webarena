@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-4 text-center align-self-center">
-        <img class="img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap" width='150'>
+        <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="img-fluid rounded" width="150">' ?>
         <h5><?= $fighter->name ?></h5>
         <div class="row">
             <div class="col-6">
@@ -65,7 +65,6 @@
       </div>
         <?= $this->Form->create($fighter, ['type' => $fighter->file]) ?>
           <div class="modal-body text-center">
-            <img src="/webArena/img/logo.png" class="rounded" width="300">
             <label class="custom-file text-left">
                 <?= $this->Form->input('Avatar', ['type' => file, 'class' => 'file']) ?>
               <span class="custom-file-control"></span>
