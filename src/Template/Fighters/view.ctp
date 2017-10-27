@@ -63,16 +63,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-center">
-        <img src="/webArena/img/logo.png" class="rounded" width="300">
-        <label class="custom-file text-left">
-          <input type="file" id="file2" class="custom-file-input">
-          <span class="custom-file-control"></span>
-        </label>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <?= $this->Form->create($fighter, ['type' => $fighter->file]) ?>
+          <div class="modal-body text-center">
+            <img src="/webArena/img/logo.png" class="rounded" width="300">
+            <label class="custom-file text-left">
+                <?= $this->Form->input('Avatar', ['type' => file, 'class' => 'file']) ?>
+              <span class="custom-file-control"></span>
+            </label>
+          </div>
+          <div class="modal-footer">
+              <?= $this->Form->button(__('Change'),['class'=>'btn btn-primary mt-4 float-right']); ?>
+          </div>
+        <?= $this->Form->end() ?>
     </div>
   </div>
 </div>

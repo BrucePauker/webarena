@@ -39,6 +39,15 @@ class FightersTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'file' => [
+                'fields' => [
+                    'dir' => 'C:\wamp64\www\webarena\webroot\img',
+                    'type' => 'jpg',
+                ],
+            ],
+        ]);
+
         $this->belongsTo('Players', [
             'foreignKey' => 'player_id',
             'joinType' => 'INNER'
