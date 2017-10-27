@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="row mt-5 justify-content-center">
+	<div class="row mt-5 mb-5 justify-content-center">
 		<div class="card w-75">
 			<div class="card-header">
 				Sign Up!

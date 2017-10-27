@@ -79,10 +79,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </nav>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <div class="container-fluid clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer class="bg-dark text-white mt-5">
+    <footer class="bg-dark text-white">
         <div class="row w-75 m-auto justify-content-center">
             <div class="col-4 p-3">
                 <dl>

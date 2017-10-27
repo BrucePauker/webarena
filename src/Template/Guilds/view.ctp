@@ -29,7 +29,7 @@
         <div class="carousel-inner">
             <?php foreach ($guild->fighters as $key => $fighter): ?>
                 <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
-                    <div class="card text-white bg-dark m-auto" style="width: 20rem;">
+                    <div class="card text-white bg-dark m-auto" style="max-width: 20rem;">
                         <img class="card-img-top img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <h4 class="card-title"><?= $fighter->name ?></h4>

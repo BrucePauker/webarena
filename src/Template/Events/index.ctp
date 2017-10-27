@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid ml-5">
     <div class="row mt-5">
         <?php foreach ($events as $event): ?>
         	<div class="row w-100">

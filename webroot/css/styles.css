@@ -21,9 +21,9 @@ footer
 	bottom: 0;
 }
 
-.container
+.container-fluid
 {
-	min-height: 45vh;
+	min-height: 60vh;
 }
 
 /* MAP CSS */
@@ -104,10 +104,13 @@ footer
 }
 
 
-
-#index{
-	background: url(../webroot/img/index.jpg) center no-repeat;
-	width: 100%;
-	height: 90vh;
+.index-image
+{
+	height: auto;
 }
 
+.index-description
+{
+	position: absolute;
+	top:12rem;
+}

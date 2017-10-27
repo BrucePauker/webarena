@@ -1,5 +1,5 @@
 <div class="row mt-5">
-    <div class="col-4">
+    <div class="col-12 col-md-4 mb-3">
         <div class="row">
             <div class="card text-white bg-dark w-100 mb-5">
               <div class="card-header">Position</div>
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="col-4 text-center align-self-center">
+    <div class="col-12 col-md-4 mb-3 text-center align-self-center">
         <img class="img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap" width='150'>
         <h5><?= $fighter->name ?></h5>
         <div class="row">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-md-4 mb-5">
         <div class="row">
             <div class="card text-white bg-dark w-100 mb-5">
               <div class="card-header">Experience</div>

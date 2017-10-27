@@ -8,10 +8,10 @@
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">
-                                <div class="col-2 text-center">
+                                <div class="col-6 col-md-2 text-center">
                                     <?= $this->Html->link('See more', ['controller' => 'Guilds', 'action' => 'view/'.$guild->id], ['class'=>'btn btn-info']) ?>
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-6 col-md-2 text-center">
                                     <?php $isIn = false; ?>
                                     <?php foreach($guild->fighters as $fighter): ?>
                                         <?php if($currentFighter->id == $fighter->id): ?>
