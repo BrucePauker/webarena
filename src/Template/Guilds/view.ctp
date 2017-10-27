@@ -17,32 +17,36 @@
     
 
 
-<div class="row mt-1">
-    <div class="col-2">
-        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-    </div>
+<div class="row justify-content-center mt-1">
+    <?php if(isset($guilds->fighters) && $guilds->fighters->count() > 1): ?>
+        <div class="col-2">
+            <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                <img class="img-fluid" src="/webArena/img/previous.png" alt="Previous">
+            </a>
+        </div>
+    <?php endif ?>
     <div id="carouselControls" class="carousel slide col-8 mb-5" data-ride="carousel">
-    <div class="carousel-inner">
-        <?php foreach ($guild->fighters as $key => $fighter): ?>
-            <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
-                <div class="card text-white bg-dark m-auto" style="width: 20rem;">
-                    <img class="card-img-top img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap">
-                    <div class="card-body text-center">
-                        <h4 class="card-title"><?= $fighter->name ?></h4>
-                        <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-dark']) ?>
+        <div class="carousel-inner">
+            <?php foreach ($guild->fighters as $key => $fighter): ?>
+                <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
+                    <div class="card text-white bg-dark m-auto" style="width: 20rem;">
+                        <img class="card-img-top img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <h4 class="card-title"><?= $fighter->name ?></h4>
+                            <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-dark']) ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
+    <?php if(isset($guilds->fighters) && $guilds->fighters->count() > 1): ?>
+        <div class="col-2">
+            <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                <img class="img-fluid" src="/webArena/img/forward.png" alt="Next">
+            </a>
+        </div>
+    <?php endif ?>
 </div>
-<div class="col-2">
-    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+    
     

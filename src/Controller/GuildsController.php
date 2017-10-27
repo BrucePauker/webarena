@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Routing\Router;
 
 /**
  * Guilds Controller
@@ -24,7 +25,7 @@ class GuildsController extends AppController
 
         $currentFighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
 
-        $this->set(compact(['guilds', 'currentFighter']));
+        $this->set(compact(['guilds', 'currentFighter', 'urlAddGuild']));
         $this->set('_serialize', ['guilds']);
     }
 
@@ -53,6 +54,7 @@ class GuildsController extends AppController
      */
     public function add()
     {
+
         $guild = $this->Guilds->newEntity();
         if ($this->request->is('post')) {
             $guild = $this->Guilds->patchEntity($guild, $this->request->getData());

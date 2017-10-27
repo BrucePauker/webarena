@@ -82,7 +82,33 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
+    <footer class="bg-dark text-white mt-5">
+        <div class="row w-75 m-auto justify-content-center">
+            <div class="col-4 p-3">
+                <dl>
+                    <dt>Authors</dt>
+                    <dd>Mathieu FRANCK</dd>
+                    <dd>Bruce PAUKER</dd>
+                </dl>
+            </div>
+            <div class="col-4 p-3">
+                <dl>
+                    <dt>Options</dt>
+                    <dd>Bootstrap</dd>
+                    <dd>Guilds / Messages</dd>
+                    <dd>Equipments</dd>
+                </dl>
+            </div>
+            <div class="col-4 p-3">
+                <dl>
+                    <dt>Git</dt>
+                    <dd>Lien vers le git</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row w-100 m-auto bg-secondary justify-content-center">
+            <div class="text-center">Corpyright 2017 - Web Arena</div>
+        </div>
     </footer>
 
     <!-- Scripts -->

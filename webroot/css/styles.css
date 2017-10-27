@@ -16,7 +16,15 @@ a:hover{
 	color: white;
 }
 
+footer
+{
+	bottom: 0;
+}
 
+.container
+{
+	min-height: 45vh;
+}
 
 /* MAP CSS */
 

@@ -155,9 +155,9 @@ class FightersTable extends Table
      */
     public function isPositionFree($x, $y)
     {
-        if($x > $this->getSizeX() || $x < 0)
+        if($x > $this->getSizeX() - 1 || $x < 0)
             return false;
-        if($y < 0 || $y > $this->getSizeY())
+        if($y < 0 || $y > $this->getSizeY() - 1)
             return false;
 
         $fighters = $this->find('all')->toArray();
