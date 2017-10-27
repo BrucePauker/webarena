@@ -19,8 +19,8 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-4 mb-3 text-center align-self-center">
-        <img class="img-fluid rounded" src="/webArena/img/logo.png" alt="Card image cap" width='150'>
+    <div class="col-4 text-center align-self-center">
+        <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="img-fluid rounded" width="150">' ?>
         <h5><?= $fighter->name ?></h5>
         <div class="row">
             <div class="col-6">
@@ -63,16 +63,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-center">
-        <img src="/webArena/img/logo.png" class="rounded" width="300">
-        <label class="custom-file text-left">
-          <input type="file" id="file2" class="custom-file-input">
-          <span class="custom-file-control"></span>
-        </label>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <?= $this->Form->create($fighter, ['type' => $fighter->file]) ?>
+          <div class="modal-body text-center">
+            <label class="custom-file text-left">
+                <?= $this->Form->input('Avatar', ['type' => file, 'class' => 'file']) ?>
+              <span class="custom-file-control"></span>
+            </label>
+          </div>
+          <div class="modal-footer">
+              <?= $this->Form->button(__('Change'),['class'=>'btn btn-primary mt-4 float-right']); ?>
+          </div>
+        <?= $this->Form->end() ?>
     </div>
   </div>
 </div>

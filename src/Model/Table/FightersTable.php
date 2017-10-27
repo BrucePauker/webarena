@@ -39,6 +39,15 @@ class FightersTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'file' => [
+                'fields' => [
+                    'dir' => 'C:\wamp64\www\webarena\webroot\img',
+                    'type' => 'jpg',
+                ],
+            ],
+        ]);
+
         $this->belongsTo('Players', [
             'foreignKey' => 'player_id',
             'joinType' => 'INNER'
@@ -120,7 +129,30 @@ class FightersTable extends Table
             ->dateTime('next_action_time')
             ->allowEmpty('next_action_time', 'create');
 
+        $validator->add('avatar_file', 'fileExtension', [
+            'rule' => [$this, 'fileExtension'],
+            'message' => 'Use a .jpg, .jpeg or .png file for your avatar'
+        ]);
+
         return $validator;
+    }
+
+    /**
+     * Build in rule for files upload
+     * Needs to '.jpg' file
+     *
+     * @param $value
+     * @param array $context
+     * @return bool
+     */
+    public function fileExtension($value, array $context) {
+
+        if(empty($value['name'])){
+            return false;
+        }
+        $extension = pathinfo($value['name'] , PATHINFO_EXTENSION);
+
+        return in_array($extension, ['jpg', 'jpeg', 'png']);
     }
 
     /**

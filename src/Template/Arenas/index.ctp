@@ -31,9 +31,9 @@
                                     foreach ($fighters as $id => $fighter) {
                                         if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
                                         {
-                                            echo '<img class="img-fluid" src="/webArena/img/fighter.png" alt="Wood" width="50">';
+                                            echo '<img class="img-fluid" src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" alt="Wood" width="50">';
                                             break;
-                                        }
+                            }
                                     }
                                 endif;
 	                        ?>		
