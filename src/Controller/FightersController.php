@@ -77,6 +77,7 @@ class FightersController extends AppController
             $fighter->coordinate_y = $y;
             $fighter->player_id = $this->Auth->user('id');
             if ($this->Fighters->save($fighter)) {
+                move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
                 $this->eventsController->add($fighter->name." arrive sur l'arène!", $fighter->coordinate_x, $fighter->coordinate_y);
                 $this->Flash->success(__('The fighter has been saved.'));
                 return $this->redirect(['action' => 'view/'.$fighter->id]);
@@ -134,5 +135,16 @@ class FightersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Save the avatar of the fighter
+     *
+     * @param \App\Model\Entity\Fighter $fighter
+     * @param string $imageName
+     */
+    public function saveAvatar($fighter, $imageName) {
+        return debug(WWW_ROOT);
+        move_uploaded_file($imageName, WWW_ROOT.'webarena/webroot/img/avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'jpg');
     }
 }

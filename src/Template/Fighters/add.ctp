@@ -6,9 +6,10 @@
             </div>
             <div class="card-body">
                 <div class="players form">
-                    <?= $this->Form->create($fighter) ?>
+                    <?= $this->Form->create($fighter, ['type' => 'file']) ?>
                     <fieldset>
                         <?= $this->Form->control('name',['class'=>'form-control']) ?>
+                        <?= $this->Form->input('avatar_file', ['type' => 'file', 'class' => 'file', 'label' => 'Votre avatar (format .jpg, .jpeg, .png)']) ?>
                     </fieldset>
                     <?= $this->Form->button(__('Add'),['class'=>'btn btn-primary mt-4 float-right']); ?>
                     <?= $this->Form->end() ?>
