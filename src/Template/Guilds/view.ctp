@@ -12,12 +12,6 @@
                 <?= $this->Html->link('Join', ['controller' => 'Guilds', 'action' => 'join/'.$guild->id], ['class'=>'btn btn-success']) ?>
             <?php endif ?>
         </div>
-        <div class="col-6 text-center">
-            <?php if($isIn): ?>
-                <?= $this->Html->link('Delete', ['controller' => 'Guilds', 'action' => 'delete'], ['class'=>'btn btn-danger']) ?>
-            <?php endif ?>
-        </div>
-        
     </div>
     
 
