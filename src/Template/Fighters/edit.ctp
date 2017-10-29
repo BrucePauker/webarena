@@ -9,7 +9,7 @@
                     <?= $this->Form->create($fighter, ['type' => 'file']) ?>
                     <fieldset>
                         <label class="custom-file text-left">
-                            <?= $this->Form->input('avatar_file', ['type' => file, 'class' => 'file', 'label' => 'Votre avatar (format .jpg, .jpeg, .png)']) ?>
+                            <?= $this->Form->input('avatar_file', ['type' => file, 'class' => 'file', 'label' => 'Votre avatar (format .jpg, .jpeg, .png)', 'accept' => 'image/x-png,image/jpg,image/jpeg']) ?>
                           <span class="custom-file-control"></span>
                         </label>
                     </fieldset>

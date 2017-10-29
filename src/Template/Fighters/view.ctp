@@ -22,14 +22,16 @@
     <div class="col-4 text-center align-self-center">
         <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="img-fluid rounded" width="150">' ?>
         <h5><?= $fighter->name ?></h5>
+        <?php if($fighter->player == $player): ?>
         <div class="row">
             <div class="col-6">
-              <?= $this->Html->link('Change Avatar', ['controller' => 'Fighters', 'action' => 'edit'], ['class'=>'btn btn-info nav-link m-auto']) ?>
+              <?= $this->Html->link('Edit', ['controller' => 'Fighters', 'action' => 'edit/'.$fighter->id], ['class'=>'btn btn-info nav-link m-auto']) ?>
             </div>
             <div class="col-6">
-                <button class="btn btn-info nav-link m-auto">Pass Level</button>
+                <?= $this->Html->link('Pass Level', ['controller' => 'Fighters', 'action' => 'edit'], ['class'=>'btn btn-info nav-link m-auto']) ?>
             </div>
         </div>
+        <?php endif; ?>
     </div>
     <div class="col-12 col-md-4 mb-5">
         <div class="row">

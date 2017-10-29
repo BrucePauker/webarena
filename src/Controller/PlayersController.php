@@ -45,7 +45,7 @@ class PlayersController extends AppController
         else
         {
             $this->Flash->error(__('Access not allowed'));
-            return $this->redirect([
+            $this->redirect([
                 'controller' => 'Players',
                 'action' => 'view/'.$this->Auth->user('id'),
             ]);

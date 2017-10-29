@@ -48,7 +48,9 @@ class FightersController extends AppController
             'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
         ]);
 
-        $this->set('fighter', $fighter);
+        $player = $this->loadModel('Players')->get($this->Auth->user('id'));
+
+        $this->set(compact('fighter', 'player'));
         $this->set('_serialize', ['fighter']);
 
     }
@@ -99,9 +101,25 @@ class FightersController extends AppController
      */
     public function edit($id = null)
     {
+        if($id == null)
+            $this->redirect([
+                'controller' => 'Fighters',
+                'action' => 'listFighters',
+            ]);
+
         $fighter = $this->Fighters->get($id, [
-            'contain' => []
+            'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
         ]);
+
+        if($fighter->player->id != $this->Auth->user('id'))
+        {
+            $this->Flash->error(__('Access denied'));
+            $this->redirect([
+                'controller' => 'Fighters',
+                'action' => 'view/'.$id,
+            ]);
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $fighter = $this->Fighters->patchEntity($fighter, $this->request->getData());
             if ($this->Fighters->save($fighter)) {
@@ -111,6 +129,7 @@ class FightersController extends AppController
             }
             $this->Flash->error(__('The fighter could not be saved. Please, try again.'));
         }
+
         $players = $this->Fighters->Players->find('list', ['limit' => 200]);
         $guilds = $this->Fighters->Guilds->find('list', ['limit' => 200]);
         $this->set(compact('fighter', 'players', 'guilds'));
