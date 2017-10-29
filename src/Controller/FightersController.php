@@ -64,6 +64,10 @@ class FightersController extends AppController
     {
         $fighter = $this->Fighters->newEntity();
         if ($this->request->is('post')) {
+            if(!$this->request->getData()['avatar_file']['tmp_name']) {
+                $this->Flash->error(__('Use a .jpg, .jpeg or .png file for your avatar.'));
+                return $this->redirect(['action' => 'add']);
+            }
             $fighter = $this->Fighters->patchEntity($fighter, $this->request->getData());
             $fighter->current_health = 5;
             $fighter->level = 1;
@@ -121,11 +125,16 @@ class FightersController extends AppController
         }
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $fighter = $this->Fighters->patchEntity($fighter, $this->request->getData());
+            $fighter->name = $this->request->getData()['name'];
             if ($this->Fighters->save($fighter)) {
+                if(!empty($this->request->getData()['avatar_file']['tmp_name']))
+                {
+                    unlink(WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
+                    move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
+                }
                 $this->Flash->success(__('The fighter has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view/'.$fighter->id]);
             }
             $this->Flash->error(__('The fighter could not be saved. Please, try again.'));
         }
@@ -163,7 +172,6 @@ class FightersController extends AppController
      * @param string $imageName
      */
     public function saveAvatar($fighter, $imageName) {
-        return debug(WWW_ROOT);
         move_uploaded_file($imageName, WWW_ROOT.'webarena/webroot/img/avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'jpg');
     }
 }

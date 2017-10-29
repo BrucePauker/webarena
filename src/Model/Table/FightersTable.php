@@ -148,7 +148,7 @@ class FightersTable extends Table
     public function fileExtension($value, array $context) {
 
         if(empty($value['name'])){
-            return false;
+            return true;
         }
         $extension = pathinfo($value['name'] , PATHINFO_EXTENSION);
 

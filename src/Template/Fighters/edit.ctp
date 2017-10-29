@@ -8,8 +8,9 @@
                 <div class="players form">
                     <?= $this->Form->create($fighter, ['type' => 'file']) ?>
                     <fieldset>
+                        <?= $this->Form->control('name',['class'=>'form-control']) ?>
                         <label class="custom-file text-left">
-                            <?= $this->Form->input('avatar_file', ['type' => file, 'class' => 'file', 'label' => 'Votre avatar (format .jpg, .jpeg, .png)', 'accept' => 'image/x-png,image/jpg,image/jpeg']) ?>
+                            <?= $this->Form->input('avatar_file', ['type' => file, 'class' => 'file', 'label' => 'Votre avatar (format .jpg, .jpeg, .png)', 'accept' => 'image/x-png,image/jpg,image/jpeg', 'required' => 'false']) ?>
                           <span class="custom-file-control"></span>
                         </label>
                     </fieldset>
