@@ -24,7 +24,7 @@
         <h5><?= $fighter->name ?></h5>
         <div class="row">
             <div class="col-6">
-                <button class="btn btn-info nav-link m-auto" data-toggle="modal" data-target="#Modal">Change Avatar</button>
+              <?= $this->Html->link('Change Avatar', ['controller' => 'Fighters', 'action' => 'edit'], ['class'=>'btn btn-info nav-link m-auto']) ?>
             </div>
             <div class="col-6">
                 <button class="btn btn-info nav-link m-auto">Pass Level</button>
