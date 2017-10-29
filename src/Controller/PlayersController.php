@@ -33,12 +33,23 @@ class PlayersController extends AppController
      */
     public function view($id)
     {
-        $player = $this->Players->get($id, [
-            'contain' => ['Fighters']
-        ]);
+        if($this->Auth->user('id') == $id)
+        {
+            $player = $this->Players->get($id, [
+                'contain' => ['Fighters']
+            ]);
 
-        $this->set('player', $player);
-        $this->set('_serialize', ['player']);
+            $this->set('player', $player);
+            $this->set('_serialize', ['player']);
+        }
+        else
+        {
+            $this->Flash->error(__('Access not allowed'));
+            return $this->redirect([
+                'controller' => 'Players',
+                'action' => 'view/'.$this->Auth->user('id'),
+            ]);
+        }
     }
 
     /**
