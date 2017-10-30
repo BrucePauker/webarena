@@ -114,3 +114,14 @@ footer
 	position: absolute;
 	top:12rem;
 }
+
+
+.custom-file>.input
+{
+	display: none;
+}
+
+.create-fighter, .custom-file
+{
+	cursor: pointer;
+}
