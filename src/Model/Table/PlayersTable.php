@@ -5,7 +5,6 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-
 /**
  * Players Model
  *
@@ -80,4 +79,5 @@ class PlayersTable extends Table
 
         return $rules;
     }
+
 }
