@@ -45,7 +45,7 @@ class ArenasController extends AppController
         $size_x = $this->fightersModel->getSizeX();
         $size_y = $this->fightersModel->getSizeY();
 
-        $fighter = $this->fightersModel->getCurrentFighter($this->Auth->user('id'));
+        $fighter = $this->fightersModel->getCurrentFighter();
 
         if($fighter)
         {
@@ -69,7 +69,7 @@ class ArenasController extends AppController
      * @param string action
      */
     public function makeAction($action) {
-        $fighter = $this->loadModel('Fighters')->getCurrentFighter($this->Auth->user('id'));
+        $fighter = $this->loadModel('Fighters')->getCurrentFighter();
 
         if(!$fighter)
         {
@@ -118,21 +118,29 @@ class ArenasController extends AppController
             }
             else if($isFree[0] == 'fighter')
             {
-                $succeed = $this->fightersModel->attack($fighter, $isFree[1]);
-                if($succeed == 'miss')
-                    $this->Flash->error(__('You\'re attack didn\'t work.'));
-                else if($succeed == 'touched')
+                if($fighter->player_id == $isFree[1]->player_id)
                 {
-                    $this->Flash->success(__('You touched your opponent.'));
-                    $this->eventsController->add($fighter->name.' moved.', $fighter->coordinate_x, $fighter->coordinate_y);
+                    $this->Flash->error(__('You try to attack your own fighter.'));
+                    $this->redirect(['action' => 'index']);
                 }
-            else if($succeed == 'killed')
+                else
                 {
-                    $fighter->coordinate_x = $newPosX;
-                    $fighter->coordinate_y = $newPosY;
-                    $this->Fighters->save($fighter);
-                    $this->eventsController->add($fighter->name.' killed '.$isFree[1]->name.'!', $fighter->coordinate_x, $fighter->coordinate_y);
-                    $this->Flash->success(__('You killed your opponent.'));
+                    $succeed = $this->fightersModel->attack($fighter, $isFree[1]);
+                    if($succeed == 'miss')
+                        $this->Flash->error(__('You\'re attack didn\'t work.'));
+                    else if($succeed == 'touched')
+                    {
+                        $this->Flash->success(__('You touched your opponent.'));
+                        $this->eventsController->add($fighter->name.' moved.', $fighter->coordinate_x, $fighter->coordinate_y);
+                    }
+                    else if($succeed == 'killed')
+                    {
+                        $fighter->coordinate_x = $newPosX;
+                        $fighter->coordinate_y = $newPosY;
+                        $this->Fighters->save($fighter);
+                        $this->eventsController->add($fighter->name.' killed '.$isFree[1]->name.'!', $fighter->coordinate_x, $fighter->coordinate_y);
+                        $this->Flash->success(__('You killed your opponent.'));
+                    }
                 }
             }
         }

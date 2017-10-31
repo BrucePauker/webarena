@@ -1,11 +1,11 @@
 <div class="row mt-3 mb-5 justify-content-center">
-    <?php if(isset($players->fighters) && $players->fighters->count() > 1): ?>
+    <?php if(isset($fighters) && count($fighters) > 1): ?>
         <div class="col-2">
             <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
                 <img class="img-fluid" src="/webArena/img/previous.png" alt="Previous">
             </a>
         </div>
-    <?php endif ?>
+    <?php endif; ?>
     <div id="carouselControls" class="carousel slide col-8" data-ride="carousel">
         <div class="carousel-inner">
             <?php foreach ($fighters as $key => $fighter): ?>
@@ -15,19 +15,20 @@
                             <div class="card-body text-center">
                                 <h4 class="card-title"><?= $fighter->name ?></h4>
                                 <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-dark']) ?>
+                                <?= $this->Html->link('Choose fighter', ['controller' => 'Fighters', 'action' => 'selectFighter/'.$fighter->id], ['class'=>'btn btn-dark']) ?>
                             </div>
                         </div>
                     </div>
             <?php endforeach; ?>
         </div>
     </div>
-    <?php if(isset($players->fighters) && $players->fighters->count() > 1): ?>
+    <?php if(isset($fighters) && count($fighters) > 1): ?>
         <div class="col-2">
             <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
                 <img class="img-fluid" src="/webArena/img/forward.png" alt="Next">
             </a>
         </div>
-    <?php endif ?>
+    <?php endif; ?>
 </div>
 <div class="create-fighter position-absolute fixed-bottom mb-5 mr-5 float-right">
     <a href="<?= $this->Url->build([

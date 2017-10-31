@@ -204,13 +204,17 @@ class FightersTable extends Table
         return 'available';
     }
 
-    public function getCurrentFighter($playerId) {
-        $fighter = $this->find('all')->where(['player_id' => $playerId])->contain(['Players', 'Guilds', 'Messages', 'Tools'])->toArray();
-
-        if(!$fighter)
+    /**
+     * Get the current fighter store in the $_session variable
+     * If there is none, null is returned
+     *
+     * @return null|\APP\Model\Entity\Fighter
+     */
+    public function getCurrentFighter() {
+        if(empty($_SESSION['fighter']))
             return null;
 
-        return $fighter[0];
+        return $_SESSION['fighter'];
     }
 
     /**

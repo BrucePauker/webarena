@@ -186,4 +186,19 @@ class FightersController extends AppController
 
         return $this->redirect(['action' => 'listFighters']);
     }
+
+    /**
+     * Select fighter by setting a $SESSION variable
+     *
+     * @param integer $fighterId
+     */
+    public function selectFighter($fighterId)
+    {
+        $fighter = $this->Fighters->get($fighterId, [
+            'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
+        ]);
+        $_SESSION['fighter'] = $fighter;
+
+        $this->redirect(['controller' => 'Arenas', 'action' => 'index']);
+    }
 }
