@@ -77,6 +77,6 @@ class EventsTable extends Table
      * @return array $this
      */
     public function getLastEvent() {
-        return $this->find('all')->where(['date >=' => Time::now()->subDays(1)])->toArray();
+        return $this->find('all')->where(['date >=' => Time::now()->subDays(1)])->order(['date' => 'DESC'])->toArray();
     }
 }

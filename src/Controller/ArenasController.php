@@ -50,7 +50,7 @@ class ArenasController extends AppController
         if($fighter)
         {
             if(round($fighter->xp/4, 0, PHP_ROUND_HALF_DOWN) > $fighter->level)
-                $this->Flash->success(__('You upgraded your level, go edit your player.'));
+                $this->Flash->success(__('You upgraded your level, go edit your fighter.'));
 
             //load the fighter of the current player
             $fighters = $this->fightersModel->loadAllFightersOnSight($fighter);
@@ -124,7 +124,7 @@ class ArenasController extends AppController
                 else if($succeed == 'touched')
                 {
                     $this->Flash->success(__('You touched your opponent.'));
-                    $this->eventsController->add($fighter->name.' moved!', $fighter->coordinate_x, $fighter->coordinate_y);
+                    $this->eventsController->add($fighter->name.' moved.', $fighter->coordinate_x, $fighter->coordinate_y);
                 }
             else if($succeed == 'killed')
                 {
