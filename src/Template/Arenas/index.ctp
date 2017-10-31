@@ -23,10 +23,14 @@
 					{ 
 				?>
 					<div class="table-row-<?php echo $i ?>">
-				<?php		
+				<?php
 						for ($j=0; $j<$size_x; $j++) 
-						{ 
-				?>		<div class="col-table-<?php echo $j ?>">
+						{
+						    if($fighter->isOnSight($fighter, $j, $i))
+						        echo '<div class="col-table-'.$j.' on-sight">';
+						    else
+                                echo '<div class="col-table-'.$j.'">';
+				?>
 							<?php
                                 if(isset($fighters)):
                                     foreach ($fighters as $id => $fighter) {

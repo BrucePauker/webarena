@@ -52,7 +52,6 @@ class ArenasController extends AppController
             if(round($fighter->xp/4, 0, PHP_ROUND_HALF_DOWN) > $fighter->level)
                 $this->Flash->success(__('You upgraded your level, go edit your fighter.'));
 
-            //load the fighter of the current player
             $fighters = $this->fightersModel->loadAllFightersOnSight($fighter);
         }
         else
@@ -61,6 +60,7 @@ class ArenasController extends AppController
         $this->set('size_x', $size_x);
         $this->set('size_y', $size_y);
         $this->set('fighters', $fighters);
+        $this->set('fighter', $fighter);
     }
 
     /**
