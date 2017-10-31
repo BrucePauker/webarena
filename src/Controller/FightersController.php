@@ -50,6 +50,9 @@ class FightersController extends AppController
 
         $player = $this->loadModel('Players')->get($this->Auth->user('id'));
 
+        if(round($fighter->xp/4, 0, PHP_ROUND_HALF_DOWN) > $fighter->level)
+            $this->Flash->success(__('You upgraded your level, edit your fighter what you want to update.'));
+
         $this->set(compact('fighter', 'player'));
         $this->set('_serialize', ['fighter']);
 
@@ -124,8 +127,27 @@ class FightersController extends AppController
             ]);
         }
 
+        if(round($fighter->xp/4, 0, PHP_ROUND_HALF_DOWN) > $fighter->level)
+            $update = true;
+        else
+            $update = false;
+
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $fighter->name = $this->request->getData()['name'];
+            $fighter = $this->Fighters->patchEntity($fighter, $this->request->getData());
+
+            if(!empty($this->request->getData()['updated_attribute']))
+            {
+                if($this->request->getData()['updated_attribute'] == 0)
+                    $fighter->skill_sight++;
+                else if($this->request->getData()['updated_attribute'] == 1)
+                    $fighter->skill_strength++;
+                else if($this->request->getData()['updated_attribute'] == 2)
+                    $fighter->skill_health = $fighter->skill_health + 3;
+
+                $fighter->level++;
+                $fighter->current_health = $fighter->skill_health;
+            }
+
             if ($this->Fighters->save($fighter)) {
                 if(!empty($this->request->getData()['avatar_file']['tmp_name']))
                 {
@@ -141,7 +163,7 @@ class FightersController extends AppController
 
         $players = $this->Fighters->Players->find('list', ['limit' => 200]);
         $guilds = $this->Fighters->Guilds->find('list', ['limit' => 200]);
-        $this->set(compact('fighter', 'players', 'guilds'));
+        $this->set(compact('fighter', 'players', 'guilds', 'update'));
         $this->set('_serialize', ['fighter']);
     }
 
@@ -162,6 +184,6 @@ class FightersController extends AppController
             $this->Flash->error(__('The fighter could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'listFighters']);
     }
 }

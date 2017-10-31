@@ -83,7 +83,8 @@ class FightersTable extends Table
         $validator
             ->scalar('name')
             ->requirePresence('name', 'create')
-            ->notEmpty('name', 'There must be a name');
+            ->notEmpty('name', 'There must be a name')
+            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'The name is already taken.']);
 
         $validator
             ->integer('coordinate_x')
@@ -132,14 +133,14 @@ class FightersTable extends Table
         $validator->add('avatar_file', 'fileExtension', [
             'rule' => [$this, 'fileExtension'],
             'message' => 'Use a .jpg, .jpeg or .png file for your avatar'
-        ]);
+            ])->allowEmpty('avatar_file', 'update');
 
         return $validator;
     }
 
     /**
      * Build in rule for files upload
-     * Needs to '.jpg' file
+     * Needs to .jpg or .png file
      *
      * @param $value
      * @param array $context
