@@ -33,7 +33,7 @@
                                         {
                                             echo '<img class="img-fluid" src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" alt="Wood" width="50">';
                                             break;
-                            }
+                                        }
                                     }
                                 endif;
 	                        ?>		

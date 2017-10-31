@@ -164,14 +164,4 @@ class FightersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    /**
-     * Save the avatar of the fighter
-     *
-     * @param \App\Model\Entity\Fighter $fighter
-     * @param string $imageName
-     */
-    public function saveAvatar($fighter, $imageName) {
-        move_uploaded_file($imageName, WWW_ROOT.'webarena/webroot/img/avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'jpg');
-    }
 }
