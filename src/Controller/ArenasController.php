@@ -73,58 +73,43 @@ class ArenasController extends AppController
             return;
         }
 
+        $newPosX = 0;
+        $newPosY = 0;
+
         if($action == 'up')
         {
-            if($this->fightersModel->isPositionFree($fighter->coordinate_x, $fighter->coordinate_y - 1))
-            {
-                $fighter->coordinate_y = $fighter->coordinate_y - 1;
-                if($this->Fighters->save($fighter)) {
-                    $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved up!', $fighter->coordinate_x, $fighter->coordinate_y - 1);
-                }
-            }
-            else
-                $this->Flash->error(__('You try to move on an impossible part of the arena.'));
+            $newPosX = $fighter->coordinate_x;
+            $newPosY = $fighter->coordinate_y - 1;
         }
         else if($action == 'down')
         {
-            if($this->fightersModel->isPositionFree($fighter->coordinate_x, $fighter->coordinate_y + 1))
-            {
-                $fighter->coordinate_y = $fighter->coordinate_y + 1;
-                if($this->Fighters->save($fighter)) {
-                    $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved down!', $fighter->coordinate_x, $fighter->coordinate_y + 1);
-                }
-            }
-            else
-                $this->Flash->error(__('You try to move on an impossible part of the arena.'));
+            $newPosX = $fighter->coordinate_x;
+            $newPosY = $fighter->coordinate_y + 1;
         }
         else if($action == 'left')
         {
-            if($this->fightersModel->isPositionFree($fighter->coordinate_x - 1, $fighter->coordinate_y))
-            {
-                $fighter->coordinate_x = $fighter->coordinate_x - 1;
-                if($this->Fighters->save($fighter)) {
-                    $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved left!', $fighter->coordinate_x - 1, $fighter->coordinate_y);
-                }
-            }
-            else
-                $this->Flash->error(__('You try to move on an impossible part of the arena.'));
+            $newPosX = $fighter->coordinate_x - 1;
+            $newPosY = $fighter->coordinate_y;
         }
         else if($action == 'right')
         {
-            if($this->fightersModel->isPositionFree($fighter->coordinate_x + 1, $fighter->coordinate_y))
-            {
-                $fighter->coordinate_x = $fighter->coordinate_x + 1;
-                if($this->Fighters->save($fighter)) {
-                    $this->Flash->success(__('You have moved.'));
-                    $this->eventsController->add($fighter->name.' moved right!', $fighter->coordinate_x + 1, $fighter->coordinate_y);
-                }
-            }
-            else
-                $this->Flash->error(__('You try to move on an impossible part of the arena.'));
+            $newPosX = $fighter->coordinate_x + 1;
+            $newPosY = $fighter->coordinate_y;
         }
+
+        // Make the test on the new position
+        if($this->fightersModel->isPositionFree($newPosX, $newPosY))
+        {
+            $fighter->coordinate_x = $newPosX;
+            $fighter->coordinate_y = $newPosY;
+
+            if($this->Fighters->save($fighter)) {
+                $this->Flash->success(__('You have moved.'));
+                $this->eventsController->add($fighter->name.' moved!', $fighter->coordinate_x, $fighter->coordinate_y - 1);
+            }
+        }
+        else
+            $this->Flash->error(__('You try to move on an impossible part of the arena.'));
 
         $this->redirect(['action' => 'index']);
     }
