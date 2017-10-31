@@ -9,8 +9,15 @@
                     <?= $this->Form->create($fighter, ['type' => 'file']) ?>
                     <fieldset>
                         <?= $this->Form->control('name',['class'=>'form-control']) ?>
+                        <?php if($update):?>
+                            <?= $this->Form->select(
+                                'updated_attribute',
+                                ['Sight + 1', 'Strenght + 1', 'Life Points + 3'],
+                                ['empty' => '(choose one)', 'class' => 'form-control']
+                            ); ?>
+                        <?php endif; ?>
                         <label class="custom-file text-left mt-3 w-100">
-                            <?= $this->Form->input('avatar_file', ['type' => 'file', 'class' => 'file', 'accept' => 'image/x-png,image/jpg,image/jpeg', 'required' => 'false']) ?>
+                            <?= $this->Form->control('avatar_file', ['type' => 'file', 'class' => 'file', 'accept' => 'image/x-png,image/jpg,image/jpeg', 'required' => 'false']) ?>
                           <span class="custom-file-control"></span>
                         </label>
                     </fieldset>
