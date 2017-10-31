@@ -28,13 +28,13 @@ class EventsController extends AppController
     }
 
     /**
-     * Add method
+     * Add Manunally method
      *
      * @param string $name of the event
      * @param integer coordinate_x default null
      * @param integer coordiante_y default null
      */
-    public function add($name, $coordinate_x = null, $coordinate_y = null)
+    public function addManually($name, $coordinate_x = null, $coordinate_y = null)
     {
         $event = $this->Events->newEntity();
 
@@ -47,6 +47,33 @@ class EventsController extends AppController
             return $this->redirect(['action' => 'index']);
         }
         $this->Flash->error(__('The event could not be saved.'));
+    }
+
+    /**
+     * Add method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function add()
+    {
+        $event = $this->Events->newEntity();
+
+        if ($this->request->is('post')) {
+
+            $event = $this->Events->patchEntity($event, $this->request->getData());
+            $event->date = Time::now();
+            $event->coordinate_y = $this->loadModel('Fighters')->getCurrentFighter()->coordinate_y;
+            $event->coordinate_x = $this->loadModel('Fighters')->getCurrentFighter()->coordinate_x;
+
+            if ($this->Events->save($event)) {
+                $this->Flash->success(__('The event has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The event could not be saved. Please, try again.'));
+        }
+
+        $this->set(compact('event'));
+        $this->set('_serialize', ['event']);
     }
 
     /**

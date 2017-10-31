@@ -1,7 +1,8 @@
 <div class="map mt-4">
 	<div class="row">
-		<div class="player-button col-12 col-md-3 align-self-center">
-			<div class="row justify-content-center">
+        <div class="player-button col-12 col-md-3 align-self-center">
+            <?= $this->Html->link('Shout', ['controller' => 'Events', 'action' => 'add'], ['class'=>'btn btn-warning']) ?>
+            <div class="row justify-content-center">
                 <?= $this->Html->link('Up', ['controller' => 'Arenas', 'action' => 'makeAction/up'], ['class'=>'btn btn-success']) ?>
 			</div>
 			<div class="row justify-content-center">
