@@ -110,14 +110,14 @@ class PlayersController extends AppController
         $player = $this->Players->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $player = $this->Players->patchEntity($player, $this->request->getData());
-            if ($this->Players->save($player)) {
-                $this->Flash->success(__('The player has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is(['post'])) {
+            $player->password = $this->request->data['password'];
+            $player->confirmpassword = $this->request->data['confirmpassword'];
+            if ($this->Users->save($player)) {
+                $this->Flash->success(__('Your password has been successfully updated.'));
+                return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->error(__('The player could not be saved. Please, try again.'));
+            $this->Flash->error(__('Your password could not be saved. Please, try again.'));
         }
         $this->set(compact('player'));
         $this->set('_serialize', ['player']);
@@ -142,4 +142,5 @@ class PlayersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
 }
