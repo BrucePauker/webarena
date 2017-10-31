@@ -98,14 +98,37 @@ class ArenasController extends AppController
         }
 
         // Make the test on the new position
-        if($this->fightersModel->isPositionFree($newPosX, $newPosY))
+        $isFree = $this->fightersModel->isPositionFree($newPosX, $newPosY);
+        if($isFree)
         {
-            $fighter->coordinate_x = $newPosX;
-            $fighter->coordinate_y = $newPosY;
+            if($isFree == 'available')
+            {
+                $fighter->coordinate_x = $newPosX;
+                $fighter->coordinate_y = $newPosY;
 
-            if($this->Fighters->save($fighter)) {
-                $this->Flash->success(__('You have moved.'));
-                $this->eventsController->add($fighter->name.' moved!', $fighter->coordinate_x, $fighter->coordinate_y - 1);
+                if($this->Fighters->save($fighter)) {
+                    $this->Flash->success(__('You have moved.'));
+                    $this->eventsController->add($fighter->name.' moved!', $fighter->coordinate_x, $fighter->coordinate_y );
+                }
+            }
+            else if($isFree[0] == 'fighter')
+            {
+                $succeed = $this->fightersModel->attack($fighter, $isFree[1]);
+                if($succeed == 'miss')
+                    $this->Flash->error(__('You\'re attack didn\'t work.'));
+                else if($succeed == 'touched')
+                {
+                    $this->Flash->success(__('You touched your opponent.'));
+                    $this->eventsController->add($fighter->name.' moved!', $fighter->coordinate_x, $fighter->coordinate_y);
+                }
+            else if($succeed == 'killed')
+                {
+                    $fighter->coordinate_x = $newPosX;
+                    $fighter->coordinate_y = $newPosY;
+                    $this->Fighters->save($fighter);
+                    $this->eventsController->add($fighter->name.' killed '.$isFree[1]->name.'!', $fighter->coordinate_x, $fighter->coordinate_y);
+                    $this->Flash->success(__('You killed your opponent.'));
+                }
             }
         }
         else

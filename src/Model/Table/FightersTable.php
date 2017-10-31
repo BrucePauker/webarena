@@ -197,10 +197,10 @@ class FightersTable extends Table
         foreach ($fighters as $fighter)
         {
             if($fighter->coordinate_x == $x && $fighter->coordinate_y == $y)
-                return false;
+                return ['fighter', $fighter];
         }
 
-        return true;
+        return 'available';
     }
 
     public function getCurrentFighter($playerId) {
@@ -250,6 +250,46 @@ class FightersTable extends Table
         }
 
         return $fighters;
+    }
+
+    /**
+     * Handle the attack on a player the attack on a fighter
+     *
+     * @param \App\Model\Entity\Fighter $fighterAttacking
+     * @param \App\Model\Entity\Fighter $fighterAttacked
+     * @return bool status of the attack
+     */
+    public function attack($fighterAttacking, $fighterAttacked)
+    {
+        $randomAttack = rand(1, 20);
+
+        if($randomAttack >= 10 + $fighterAttacked->skill_strength - $fighterAttacking->skill_strength)
+        {
+            $fighterAttacked->current_health = $fighterAttacked->current_health - $fighterAttacking->skill_strength;
+            $fighterAttacking->xp++;
+            if($fighterAttacked->current_health <= 0)
+            {
+                $fighterAttacking->xp = $fighterAttacking->xp + $fighterAttacked->level;
+                $this->destroy($fighterAttacked);
+                $this->save($fighterAttacking);
+                return 'killed';
+            }
+            $this->save($fighterAttacking);
+            $this->save($fighterAttacked);
+            return 'touched';
+        }
+        else
+            return 'miss';
+    }
+
+    /**
+     * Handle the destruction of a fighter
+     *
+     * @param \App\Model\Entity\Fighter $fighterAttacked
+     */
+    public function destroy($fighterAttacked)
+    {
+        $this->delete($fighterAttacked);
     }
 
     /**

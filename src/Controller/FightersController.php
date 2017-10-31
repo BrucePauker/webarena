@@ -70,8 +70,8 @@ class FightersController extends AppController
             }
             $fighter = $this->Fighters->patchEntity($fighter, $this->request->getData());
             $fighter->current_health = 5;
-            $fighter->level = 1;
-            $fighter->xp = 1;
+            $fighter->level = 0;
+            $fighter->xp = 0;
             $fighter->skill_strength = 1;
             $fighter->skill_health = 5;
             $fighter->skill_sight = 2;
