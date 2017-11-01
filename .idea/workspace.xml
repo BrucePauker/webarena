@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f33ee5c-18fa-43c6-b491-941a6001e9df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Arenas/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Arenas/index.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,10 +26,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ToolsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ToolsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ToolsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2500">
+            <state relative-caret-position="1900">
               <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
               <folding />
             </state>
@@ -47,21 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArenasController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArenasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ArenasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="108" column="43" lean-forward="false" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ToolsTable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Table/ToolsTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+            <state relative-caret-position="525">
+              <caret line="119" column="17" lean-forward="true" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -288,12 +277,12 @@
       <workItem from="1509105557559" duration="571000" />
       <workItem from="1509290316100" duration="6147000" />
       <workItem from="1509356861349" duration="343000" />
-      <workItem from="1509450866848" duration="27749000" />
+      <workItem from="1509450866848" duration="27808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87489000" />
+    <option name="totallyTimeSpent" value="87548000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -734,22 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/ToolsTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ArenasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="108" column="43" lean-forward="false" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Arenas/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-550">
@@ -760,8 +733,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ToolsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2500">
+        <state relative-caret-position="1900">
           <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/ToolsTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ArenasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="119" column="17" lean-forward="true" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
           <folding />
         </state>
       </provider>
