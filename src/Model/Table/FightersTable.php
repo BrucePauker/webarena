@@ -289,6 +289,7 @@ class FightersTable extends Table
             if($fighterAttacked->current_health <= 0)
             {
                 $fighterAttacking->xp = $fighterAttacking->xp + $fighterAttacked->level;
+                unlink(WWW_ROOT.'\img\avatars'.DS.$fighterAttacked->id.'.jpg');
                 $this->destroy($fighterAttacked);
                 $this->save($fighterAttacking);
                 return 'killed';

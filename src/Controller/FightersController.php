@@ -179,6 +179,7 @@ class FightersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $fighter = $this->Fighters->get($id);
         if ($this->Fighters->delete($fighter)) {
+            unlink(WWW_ROOT.'\img\avatars'.DS.$fighter->id.'.jpg');
             $this->Flash->success(__('The fighter has been deleted.'));
         } else {
             $this->Flash->error(__('The fighter could not be deleted. Please, try again.'));
