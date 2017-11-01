@@ -14,7 +14,7 @@
                                 <div class="col-6 col-md-2 text-center">
                                     <?php $isIn = false; ?>
                                     <?php foreach($guild->fighters as $fighter): ?>
-                                        <?php if($currentFighter->id == $fighter->id): ?>
+                                        <?php if(isset($currentFighter) && $currentFighter->id == $fighter->id): ?>
                                             <?php $isIn = true; break; ?>
                                         <?php endif; ?>
                                     <?php endforeach; ?>

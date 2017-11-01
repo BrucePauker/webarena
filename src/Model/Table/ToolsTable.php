@@ -136,4 +136,24 @@ class ToolsTable extends Table
 
         return false;
     }
+
+    /**
+     * Check if a position on the map is free for a tool
+     *
+     * @param $x integer
+     * @param $y integer
+     * @return boolean
+     */
+    public function isToolsAtPos($x, $y)
+    {
+        $tools = $this->find('all')->toArray();
+
+        foreach ($tools as $tool)
+        {
+            if($tool->coordinate_x == $x && $tool->coordinate_y == $y)
+                return $tool;
+        }
+
+        return false;
+    }
 }

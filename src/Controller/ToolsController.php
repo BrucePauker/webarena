@@ -42,52 +42,6 @@ class ToolsController extends AppController
     }
 
     /**
-     * Edit method
-     *
-     * @param string|null $id Tool id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $tool = $this->Tools->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $tool = $this->Tools->patchEntity($tool, $this->request->getData());
-            if ($this->Tools->save($tool)) {
-                $this->Flash->success(__('The tool has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The tool could not be saved. Please, try again.'));
-        }
-        $fighters = $this->Tools->Fighters->find('list', ['limit' => 200]);
-        $this->set(compact('tool', 'fighters'));
-        $this->set('_serialize', ['tool']);
-    }
-
-    /**
-     * Delete method
-     *
-     * @param string|null $id Tool id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $tool = $this->Tools->get($id);
-        if ($this->Tools->delete($tool)) {
-            $this->Flash->success(__('The tool has been deleted.'));
-        } else {
-            $this->Flash->error(__('The tool could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);
-    }
-
-    /**
      * Check if a position on the map is free for a tool
      *
      * @param $x integer
@@ -106,9 +60,9 @@ class ToolsController extends AppController
         foreach ($tools as $tool)
         {
             if($tool->coordinate_x == $x && $tool->coordinate_y == $y)
-                return true;
+                return false;
         }
 
-        return 'available';
+        return true;
     }
 }

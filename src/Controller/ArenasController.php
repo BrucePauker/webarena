@@ -47,6 +47,12 @@ class ArenasController extends AppController
 
         $fighter = $this->fightersModel->getCurrentFighter();
 
+        if($fighter && !$this->loadModel('Fighters')->exists(['id' => $fighter->id]))
+        {
+            unset($_SESSION['fighter']);
+            $fighter = null;
+        }
+
         if($fighter)
         {
             if(round($fighter->xp/4, 0, PHP_ROUND_HALF_DOWN) > $fighter->level)
@@ -59,6 +65,7 @@ class ArenasController extends AppController
         else
         {
             $fighters = null;
+            $tools = null;
             $this->Flash->error(__('You don\'t have a current fighter.'));
         }
         
@@ -109,7 +116,7 @@ class ArenasController extends AppController
         }
 
         // Make the test on the new position
-        $isFree = $this->fightersModel->isPositionFree($newPosX, $newPosY);
+        $isFree = $this->getObjectAtPos($newPosX, $newPosY);
         if($isFree)
         {
             if($isFree == 'available')
@@ -149,10 +156,36 @@ class ArenasController extends AppController
                     }
                 }
             }
+            else if($isFree[0] == 'tools')
+            {
+                $isFree[1]->fighter_id = $fighter->id;
+                $this->loadModel('Tools')->save($isFree[1]);
+            }
         }
         else
             $this->Flash->error(__('You try to move on an impossible part of the arena.'));
 
         $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Get the object if any at a certain position
+     *
+     * @param integer $x
+     * @param integer $y
+     */
+    public function getObjectAtPos($x, $y)
+    {
+        $fighter = $this->loadModel('Fighters')->isPositionFree($x, $y);
+
+        if($fighter[0] == 'fighter')
+            return $fighter;
+
+        $tool = $this->loadModel('Tools')->isToolsAtPos($x, $y);
+
+        if($tool)
+            return ['tools', $tool];
+
+        return 'available';
     }
 }
