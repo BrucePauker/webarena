@@ -17,7 +17,7 @@ class ToolsController extends AppController
 
         if($this->Tools->find('all')->count() < 10)
         {
-            for ($i = 0; $i < 10; $i++)
+            for ($i = $this->Tools->find('all')->count(); $i < 10; $i++)
             {
                 $tool = $this->Tools->newEntity();
 
@@ -59,7 +59,7 @@ class ToolsController extends AppController
 
         foreach ($tools as $tool)
         {
-            if($tool->coordinate_x == $x && $tool->coordinate_y == $y)
+            if($tool->coordinate_x == $x && $tool->coordinate_y == $y && $tool->fighter_id == null)
                 return false;
         }
 

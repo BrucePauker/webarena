@@ -158,8 +158,30 @@ class ArenasController extends AppController
             }
             else if($isFree[0] == 'tools')
             {
-                $isFree[1]->fighter_id = $fighter->id;
+                $fighter->coordinate_x = $newPosX;
+                $fighter->coordinate_y = $newPosY;
+
+                $tool = $isFree[1];
+                $tool->fighter_id = $fighter->id;
                 $this->loadModel('Tools')->save($isFree[1]);
+
+                if($tool->type == '0')
+                {
+                    $fighter->skill_sight = $fighter->skill_sight + $tool->bonus;
+                    $this->Flash->success(__('You upgraded your sight from '.$tool->bonus));
+                }
+                else if($tool->type == '1')
+                {
+                    $fighter->skill_strength = $fighter->skill_strength + $tool->bonus;
+                    $this->Flash->success(__('You upgraded your strength from '.$tool->bonus));
+                }
+                else if($tool->type == '2')
+                {
+                    $fighter->skill_health = $fighter->skill_health + $tool->bonus;
+                    $this->Flash->success(__('You upgraded your health from '.$tool->bonus));
+                }
+
+                $this->Fighters->save($fighter);
             }
         }
         else

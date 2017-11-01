@@ -150,7 +150,7 @@ class ToolsTable extends Table
 
         foreach ($tools as $tool)
         {
-            if($tool->coordinate_x == $x && $tool->coordinate_y == $y)
+            if($tool->coordinate_x == $x && $tool->coordinate_y == $y && $tool->fighter_id == null)
                 return $tool;
         }
 

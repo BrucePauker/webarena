@@ -214,6 +214,16 @@ class FightersTable extends Table
         if(empty($_SESSION['fighter']))
             return null;
 
+        if(!$this->exists(['id' => $_SESSION['fighter']->id]))
+            return null;
+        else {
+            $fighter = $this->get($_SESSION['fighter']->id, [
+                'contain' => ['Players', 'Guilds', 'Messages', 'Tools']
+            ]);
+            $_SESSION['fighter'] = $fighter;
+        }
+
+
         return $_SESSION['fighter'];
     }
 

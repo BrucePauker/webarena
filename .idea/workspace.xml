@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f33ee5c-18fa-43c6-b491-941a6001e9df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ArenasController.php" afterPath="$PROJECT_DIR$/src/Controller/ArenasController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ToolsController.php" afterPath="$PROJECT_DIR$/src/Controller/ToolsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/FightersTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/ToolsTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/ToolsTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Arenas/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Arenas/index.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Guilds/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Guilds/index.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,38 +22,8 @@
       <file leaf-file-name="ArenasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ArenasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3675">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Arenas/index.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="56" column="120" lean-forward="false" selection-start-line="56" selection-start-column="120" selection-end-line="56" selection-end-column="120" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ToolsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ToolsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ToolsTable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Table/ToolsTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="150" column="16" lean-forward="true" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
+            <state relative-caret-position="550">
+              <caret line="180" column="70" lean-forward="false" selection-start-line="180" selection-start-column="70" selection-end-line="180" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -114,13 +82,13 @@
         <option value="$PROJECT_DIR$/src/Template/Fighters/list_fighters.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Fighters/view.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/FightersController.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
         <option value="$PROJECT_DIR$/src/Template/Guilds/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Arenas/index.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/ToolsTable.php" />
         <option value="$PROJECT_DIR$/src/Controller/ToolsController.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
         <option value="$PROJECT_DIR$/src/Controller/ArenasController.php" />
-        <option value="$PROJECT_DIR$/src/Template/Arenas/index.ctp" />
       </list>
     </option>
   </component>
@@ -182,34 +150,7 @@
               <item name="webarena" type="cbb8eebc:String" user="webarena" />
               <item name="src" type="cbb8eebc:String" user="src" />
               <item name="Model" type="cbb8eebc:String" user="Model" />
-              <item name="Entity" type="cbb8eebc:String" user="Entity" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="webarena" type="cbb8eebc:String" user="webarena" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="Model" type="cbb8eebc:String" user="Model" />
               <item name="Table" type="cbb8eebc:String" user="Table" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="webarena" type="cbb8eebc:String" user="webarena" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="Template" type="cbb8eebc:String" user="Template" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="webarena" type="cbb8eebc:String" user="webarena" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="Template" type="cbb8eebc:String" user="Template" />
-              <item name="Arenas" type="cbb8eebc:String" user="Arenas" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="webarena" type="cbb8eebc:String" user="webarena" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="Template" type="cbb8eebc:String" user="Template" />
-              <item name="Guilds" type="cbb8eebc:String" user="Guilds" />
             </path>
           </expand>
           <select />
@@ -289,12 +230,12 @@
       <workItem from="1509105557559" duration="571000" />
       <workItem from="1509290316100" duration="6147000" />
       <workItem from="1509356861349" duration="343000" />
-      <workItem from="1509450866848" duration="30985000" />
+      <workItem from="1509450866848" duration="32310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90725000" />
+    <option name="totallyTimeSpent" value="92050000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -613,14 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Fighter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webroot/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -703,22 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FightersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/FightersTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="213" column="35" lean-forward="false" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Guilds/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -735,34 +652,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/ToolsTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="150" column="16" lean-forward="true" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ToolsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+        <state relative-caret-position="446">
+          <caret line="61" column="98" lean-forward="false" selection-start-line="61" selection-start-column="98" selection-end-line="61" selection-end-column="98" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Arenas/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="56" column="120" lean-forward="false" selection-start-line="56" selection-start-column="120" selection-end-line="56" selection-end-column="120" />
+        <state relative-caret-position="275">
+          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Fighter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/ToolsTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="152" column="78" lean-forward="true" selection-start-line="152" selection-start-column="78" selection-end-line="152" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/FightersTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="222" column="44" lean-forward="false" selection-start-line="222" selection-start-column="44" selection-end-line="222" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FightersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="48" column="9" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="48" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ArenasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3675">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="550">
+          <caret line="180" column="70" lean-forward="false" selection-start-line="180" selection-start-column="70" selection-end-line="180" selection-end-column="70" />
           <folding />
         </state>
       </provider>
