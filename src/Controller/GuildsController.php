@@ -77,7 +77,10 @@ class GuildsController extends AppController
      */
     public function join($idGuild) {
         $fighter = $this->loadModel('Fighters')->getCurrentFighter();
-        $this->loadModel('Fighters')->query()->update()->set(['guild_id' => $idGuild])->where(['id' => $fighter->id])->execute();
+        if($fighter)
+            $this->loadModel('Fighters')->query()->update()->set(['guild_id' => $idGuild])->where(['id' => $fighter->id])->execute();
+        else
+            $this->Flash->error(__('You don\'t have a current fighter.'));
 
         return $this->redirect(['action' => 'view/'.$idGuild]);
     }

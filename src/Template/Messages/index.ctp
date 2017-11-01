@@ -15,7 +15,7 @@
 		  	<div class="card">
 			  	<div class="card-body">
 				  	<blockquote class="blockquote">
-		              <p class="mb-0">From :<?php echo $messages->fighter_id_from ?></p>
+		              <p class="mb-0">From :<?php if(isset($messages)): echo $messages->fighter_id_from; endif; ?></p>
 		              <p class="mb-0"><?php echo $messages->message ?></p>
 		              <footer class="blockquote-footer">Received on <cite title="<?php echo $messages->date ?>"><?php echo $messages->date ?></cite></footer>
 		            </blockquote>
