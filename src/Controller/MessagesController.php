@@ -24,8 +24,8 @@ class MessagesController extends AppController
         if($this->loadModel('Fighters')->getCurrentFighter() != null)
         {
             $fighter = $this->loadModel('Fighters')->getCurrentFighter();
-            $messagesTo = $this->Messages->find('all')->contain(['FightersFrom'])->where(['fighter_id' => $fighter->id])->toArray();
-            $messagesFrom = $this->Messages->find('all')->where(['fighter_id_from' => $fighter->id])->toArray();
+            $messagesFrom = $this->Messages->find('all')->contain(['FightersFrom'])->where(['fighter_id' => $fighter->id])->toArray();
+            $messagesTo = $this->Messages->find('all')->contain(['FightersTo'])->where(['fighter_id_from' => $fighter->id])->toArray();
         }
         else
         {
@@ -64,7 +64,7 @@ class MessagesController extends AppController
     {
         $message = $this->Messages->newEntity();
 
-        if ($this->request->is('post')) {
+        if ($this->request->is('post') && $this->loadModel('Fighters')->getCurrentFighter()) {
             $message = $this->Messages->patchEntity($message, $this->request->getData());
             $message->fighter_id_from = $this->loadModel('Fighters')->getCurrentFighter()->id;
             $message->date = Time::now();
@@ -75,6 +75,8 @@ class MessagesController extends AppController
             }
             $this->Flash->error(__('The message could not be saved. Please, try again.'));
         }
+        else if(!$this->loadModel('Fighters')->getCurrentFighter())
+            $this->Flash->error(__('You don\'t have a current fighter.'));
 
         $fighters = $this->Messages->FightersTo->find('list', ['limit' => 200]);
 

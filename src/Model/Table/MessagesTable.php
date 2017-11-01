@@ -39,13 +39,14 @@ class MessagesTable extends Table
         $this->belongsTo('FightersFrom', [
             'className' => 'Fighters',
             'foreignKey' => 'fighter_id_from',
+            'bindingKey' => 'id',
             'joinType' => 'INNER'
         ]);
 
-        $this->hasMany('FightersTo', [
+        $this->belongsTo('FightersTo', [
             'className' => 'Fighters',
             'foreignKey' => 'fighter_id',
-            'joinType' => 'INNER'
+            'joinType' => 'INNER',
         ]);
     }
 
