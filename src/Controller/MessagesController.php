@@ -21,10 +21,7 @@ class MessagesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['FightersTo']
-        ];
-        $messages = $this->paginate($this->Messages);
+        $messages = $this->Messages->find('all')->where(['fighter_id' => $this->loadModel('Fighters')->getCurrentFighter()->id])->orWhere(['fighter_id_from' => $this->loadModel('Fighters')->getCurrentFighter()->id])->toArray();
 
         $this->set(compact('messages'));
         $this->set('_serialize', ['messages']);
@@ -55,13 +52,13 @@ class MessagesController extends AppController
     public function add()
     {
         $message = $this->Messages->newEntity();
-        $fighters = $this->loadModel('Fighters')->loadAllOtherFighters($this->Auth->user('id'));
 
         if ($this->request->is('post')) {
             $message = $this->Messages->patchEntity($message, $this->request->getData());
+            $message->fighter_id_from = $this->loadModel('Fighters')->getCurrentFighter()->id;
             $message->date = Time::now();
             if ($this->Messages->save($message)) {
-                $this->Flash->success(__('The message has been saved.'));
+                $this->Flash->success(__('The message has been send.'));
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -70,32 +67,6 @@ class MessagesController extends AppController
 
         $fighters = $this->Messages->FightersTo->find('list', ['limit' => 200]);
 
-        $this->set(compact('message', 'fighters'));
-        $this->set('_serialize', ['message']);
-    }
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Message id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $message = $this->Messages->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $message = $this->Messages->patchEntity($message, $this->request->getData());
-            if ($this->Messages->save($message)) {
-                $this->Flash->success(__('The message has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The message could not be saved. Please, try again.'));
-        }
-        $fighters = $this->Messages->Fighters->find('list', ['limit' => 200]);
         $this->set(compact('message', 'fighters'));
         $this->set('_serialize', ['message']);
     }

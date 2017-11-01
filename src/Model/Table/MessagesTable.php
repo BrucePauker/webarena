@@ -93,7 +93,7 @@ class MessagesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['fighter_id'], 'Fighters'));
+        //$rules->add($rules->existsIn('fighter_id', 'Fighters'));
 
         return $rules;
     }
