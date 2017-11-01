@@ -5,7 +5,7 @@
                 <div class="card text-white bg-dark m-auto w-75 mb-3">
                   <div class="card-header text-center"><?= $fighter->name ?></div>
                   <div class="card-body justify-content-center">
-                    <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded">' ?>
+                    <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded">' ?>
                     <p class="card-text text-center">Health : <?= $fighter->current_health ?></p>
                   </div>
                 </div>
