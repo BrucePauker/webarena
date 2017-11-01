@@ -1,8 +1,17 @@
 <div class="map mt-4">
 	<div class="row">
-        <div class="player-button col-12 col-md-3 align-self-center">
+        <div class="player-button col-12 col-md-3">
+            <div class="row">
+                <div class="card text-white bg-dark m-auto w-75 mb-3">
+                  <div class="card-header text-center"><?= $fighter->name ?></div>
+                  <div class="card-body justify-content-center">
+                    <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded">' ?>
+                    <p class="card-text text-center">Health : <?= $fighter->current_health ?></p>
+                  </div>
+                </div>
+            </div>
             <?php if(isset($fighter)): ?>
-                <div class="row justify-content-center mb-3">
+                <div class="row justify-content-center mt-3 mb-3">
                     <?= $this->Html->link('Shout', ['controller' => 'Events', 'action' => 'add'], ['class'=>'btn btn-warning']) ?>
                 </div>
                 <div class="row justify-content-center">
