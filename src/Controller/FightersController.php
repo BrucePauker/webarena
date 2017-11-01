@@ -201,4 +201,20 @@ class FightersController extends AppController
 
         $this->redirect(['controller' => 'Arenas', 'action' => 'index']);
     }
+
+    /**
+     * Get all the fighter of the other player in JSON format
+     *
+     * @param string $searchName
+     */
+    public function getAllFightersOtherPlayerJSON()
+    {
+        $fighters = $this->Fighters->find()->select(['name', 'id'])->where(function ($exp) {
+            return $exp->notEq('player_id', $_SESSION['Auth']['User']['id']);
+        })->andWhere(['name LIKE' => '%'.$_GET['searchName'].'%'])->limit(15)->toArray();
+
+        $response = $this->response->withStringBody(json_encode($fighters));
+
+        return $response;
+    }
 }
