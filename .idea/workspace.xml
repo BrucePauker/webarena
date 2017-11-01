@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f33ee5c-18fa-43c6-b491-941a6001e9df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ArenasController.php" afterPath="$PROJECT_DIR$/src/Controller/ArenasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ToolsController.php" afterPath="$PROJECT_DIR$/src/Controller/ToolsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/FightersTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/ToolsTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/ToolsTable.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ArenasController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ArenasController.php">
+      <file leaf-file-name="FightersTable.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/FightersTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="180" column="70" lean-forward="false" selection-start-line="180" selection-start-column="70" selection-end-line="180" selection-end-column="70" />
+            <state relative-caret-position="475">
+              <caret line="303" column="114" lean-forward="false" selection-start-line="303" selection-start-column="114" selection-end-line="303" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -86,9 +83,9 @@
         <option value="$PROJECT_DIR$/src/Template/Arenas/index.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/ToolsTable.php" />
         <option value="$PROJECT_DIR$/src/Controller/ToolsController.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
         <option value="$PROJECT_DIR$/src/Controller/ArenasController.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
       </list>
     </option>
   </component>
@@ -230,12 +227,12 @@
       <workItem from="1509105557559" duration="571000" />
       <workItem from="1509290316100" duration="6147000" />
       <workItem from="1509356861349" duration="343000" />
-      <workItem from="1509450866848" duration="32310000" />
+      <workItem from="1509450866848" duration="32707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92050000" />
+    <option name="totallyTimeSpent" value="92447000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -684,14 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/FightersTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="222" column="44" lean-forward="false" selection-start-line="222" selection-start-column="44" selection-end-line="222" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FightersController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -704,6 +693,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="180" column="70" lean-forward="false" selection-start-line="180" selection-start-column="70" selection-end-line="180" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/FightersTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="303" column="114" lean-forward="false" selection-start-line="303" selection-start-column="114" selection-end-line="303" selection-end-column="114" />
           <folding />
         </state>
       </provider>

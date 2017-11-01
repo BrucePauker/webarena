@@ -292,7 +292,16 @@ class FightersTable extends Table
     {
         $randomAttack = rand(1, 20);
 
-        if($randomAttack >= 10 + $fighterAttacked->skill_strength - $fighterAttacking->skill_strength)
+        $fightersOfGuild = $this->find('all')->where(['guild_id' => $fighterAttacking->guild_id]);
+
+        $addAttack = 0;
+
+        foreach ($fightersOfGuild as $fighterOfGuild) {
+            if($fighterOfGuild->distance($fighterOfGuild->coordinate_x, $fighterAttacked->coordinate_y, $fighterOfGuild->coordinate_x, $fighterAttacked->coordinate_y) == 1)
+                $addAttack = 1;
+        }
+
+        if($randomAttack >= 10 + $fighterAttacked->skill_strength - $fighterAttacking->skill_strength + $addAttack)
         {
             $fighterAttacked->current_health = $fighterAttacked->current_health - $fighterAttacking->skill_strength;
             $fighterAttacking->xp++;
