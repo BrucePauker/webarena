@@ -30,7 +30,7 @@
         </div>
     <?php endif; ?>
 </div>
-<div class="create-fighter position-absolute fixed-bottom mb-5 mr-5 float-right">
+<div class="create-fighter position-absolute mb-5 mr-5 float-right">
     <a href="<?= $this->Url->build([
                     'controller' => 'Fighters',
                     'action' => 'add'
