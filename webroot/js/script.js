@@ -19,3 +19,8 @@ $( function() {
         appendTo: "#appendAuto"
     });
 } );
+
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})

@@ -17,7 +17,7 @@
               <div class="card">
                   <div class="card-body">
                       <blockquote class="blockquote">
-                          <p class="mb-0">From :<?php if(isset($messageFrom)): echo $messageFrom->fighters_from->name; endif; ?></p>
+                          <p class="mb-0">From : <?php if(isset($messageFrom)): echo $messageFrom->fighters_from->name; endif; ?></p>
                           <p class="mb-0"><?php echo $messageFrom->message ?></p>
                           <footer class="blockquote-footer">Received on <cite title="<?php echo $messageFrom->date ?>"><?php echo $messageFrom->date ?></cite></footer>
                       </blockquote>
@@ -32,7 +32,7 @@
                 <div class="card">
                     <div class="card-body">
                         <blockquote class="blockquote">
-                          <p class="mb-0">To :<?php echo $messageTo->fighters_to->name ?></p>
+                          <p class="mb-0">To : <?php echo $messageTo->fighters_to->name ?></p>
                           <p class="mb-0"><?php echo $messageTo->message ?></p>
                           <footer class="blockquote-footer">Sent on <cite title="<?php echo $messageTo->date ?>"><?php echo $messageTo->date ?></cite></footer>
                         </blockquote>

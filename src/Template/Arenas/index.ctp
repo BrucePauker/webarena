@@ -56,7 +56,8 @@
                                     foreach ($tools as $id => $tool) {
                                         if($tool->coordinate_x == $j && $tool->coordinate_y == $i && $tool->fighter_id == null)
                                         {
-                                            echo '<img class="img-fluid" src="/webarena/webroot/img/hammer.png" alt="Wood" width="50">';
+
+                                            echo '<img class="img-fluid" src="/webarena/webroot/img/hammer.png" alt="Tools" width="50" data-container="body" data-toggle="popover" data-placement="top" data-content="Take that tools to gain skills!">';
                                             break;
                                         }
                                     }
@@ -65,7 +66,7 @@
                                     foreach ($fighters as $id => $fighter) {
                                         if($fighter->coordinate_x == $j && $fighter->coordinate_y == $i)
                                         {
-                                            echo '<img class="img-fluid" src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" alt="Wood" width="50">';
+                                            echo '<img class="img-fluid" src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" alt="Fighter" width="50" data-container="body" data-toggle="popover" data-placement="top" data-content="Fighter : '.$fighter->name.', Health : '.$fighter->current_health.'">';
                                             break;
                                         }
                                     }
