@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4f33ee5c-18fa-43c6-b491-941a6001e9df" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/FightersController.php" afterPath="$PROJECT_DIR$/src/Controller/FightersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/FightersTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +15,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="FightersController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/FightersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="153" column="20" lean-forward="false" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -71,9 +81,9 @@
         <option value="$PROJECT_DIR$/src/Template/Fighters/list_fighters.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Fighters/view.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Arenas/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
         <option value="$PROJECT_DIR$/src/Controller/FightersController.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/FightersTable.php" />
       </list>
     </option>
   </component>
@@ -222,12 +232,12 @@
       <workItem from="1509105557559" duration="571000" />
       <workItem from="1509290316100" duration="6147000" />
       <workItem from="1509356861349" duration="343000" />
-      <workItem from="1509450866848" duration="26166000" />
+      <workItem from="1509450866848" duration="26463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85906000" />
+    <option name="totallyTimeSpent" value="86203000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -240,8 +250,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27675676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27675676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -640,16 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MessagesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="36" />
-          <folding>
-            <element signature="e#33#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Fighters/edit.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -690,10 +691,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MessagesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#33#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FightersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="181" column="67" lean-forward="false" selection-start-line="181" selection-start-column="67" selection-end-line="181" selection-end-column="67" />
+        <state relative-caret-position="475">
+          <caret line="153" column="20" lean-forward="false" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
           <folding />
         </state>
       </provider>

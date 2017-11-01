@@ -152,7 +152,7 @@ class FightersController extends AppController
                 if(!empty($this->request->getData()['avatar_file']['tmp_name']))
                 {
                     unlink(WWW_ROOT.'\img\avatars'.DS.$fighter->id.'.jpg');
-                    move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
+                    move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$fighter->id.'.jpg');
                 }
                 $this->Flash->success(__('The fighter has been saved.'));
 
