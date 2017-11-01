@@ -20,9 +20,6 @@ $( function() {
     });
 } );
 
-
-
-
-$('.test').popover({
+$('.popUp').popover({
   trigger: 'hover'
 })
