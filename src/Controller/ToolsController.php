@@ -13,6 +13,12 @@ use App\Controller\AppController;
 class ToolsController extends AppController
 {
 
+    /**
+     * Generate tools to be displayed on the arena
+     * If there is already ten tools created in the database it won't create more
+     *
+     * @return void
+     */
     public function generate() {
 
         if($this->Tools->find('all')->count() < 10)
