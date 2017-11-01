@@ -151,6 +151,10 @@ class ArenasController extends AppController
                         $fighter->coordinate_x = $newPosX;
                         $fighter->coordinate_y = $newPosY;
                         $this->Fighters->save($fighter);
+
+                        foreach ($isFree[1]->tools as $tool)
+                            $this->loadModel('Tools')->delete($tool);
+
                         $this->eventsController->add($fighter->name.' killed '.$isFree[1]->name.'!', $fighter->coordinate_x, $fighter->coordinate_y);
                         $this->Flash->success(__('You killed your opponent.'));
                     }

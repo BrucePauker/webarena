@@ -193,7 +193,7 @@ class FightersTable extends Table
         if($y < 0 || $y > $this->getSizeY() - 1)
             return false;
 
-        $fighters = $this->find('all')->toArray();
+        $fighters = $this->find('all')->contain(['Tools']);
 
         foreach ($fighters as $fighter)
         {
