@@ -87,4 +87,53 @@ class ToolsTable extends Table
 
         return $rules;
     }
+
+    /**
+     * Load the all the tools on sight of the database
+     *
+     * @param Cake\ORM\Entity\Fighter
+     * @return Array Cake\ORM\Entity\Fighter
+     */
+    public function getToolsOnSight($fighter) {
+        $tools = $this->find('all')->toArray();
+
+        foreach ($tools as $key => $tool) {
+            if(!$this->isOnSight($fighter, $tool->coordinate_x, $tool->coordinate_y))
+                unset($tools[$key]);
+        }
+
+        return $tools;
+    }
+
+    /**
+     * Return the distance between an item and a fighter
+     * Calculated by Manhattan distance
+     *
+     * @param $xA integer position x of the fighter
+     * @param $xB integer position x of the object
+     * @param $yA integer position y of the fighter
+     * @param $yB integer position y of the object
+     * @return integer distance between object
+     */
+    public function distance($xA, $xB, $yA, $yB)
+    {
+        $distance = abs($xB - $xA) + abs($yB - $yA);
+
+        return $distance;
+    }
+
+    /**
+     * Tell if the item is on sight
+     *
+     * @param $fighter \App\Model\Entity\Fighter
+     * @param $xB integer
+     * @param $yB integer
+     * @return boolean
+     */
+    public function isOnSight($fighter, $xB, $yB) {
+        if($fighter->skill_sight >= $this->distance($fighter->coordinate_x, $xB, $fighter->coordinate_y, $yB))
+            return true;
+
+        return false;
+    }
 }

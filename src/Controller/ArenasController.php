@@ -53,6 +53,8 @@ class ArenasController extends AppController
                 $this->Flash->success(__('You upgraded your level, go edit your fighter.'));
 
             $fighters = $this->fightersModel->loadAllFightersOnSight($fighter);
+            $tools = $this->loadModel('Tools')->getToolsOnSight($fighter);
+
         }
         else
         {
@@ -64,6 +66,7 @@ class ArenasController extends AppController
         $this->set('size_y', $size_y);
         $this->set('fighters', $fighters);
         $this->set('fighter', $fighter);
+        $this->set('tools', $tools);
     }
 
     /**

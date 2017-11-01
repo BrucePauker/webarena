@@ -15,23 +15,28 @@ class ToolsController extends AppController
 
     public function generate() {
 
-        for ($i = 0; $i < 10; $i++)
+        if($this->Tools->find('all')->count() < 10)
         {
-            $tool = $this->Tools->newEntity();
+            for ($i = 0; $i < 10; $i++)
+            {
+                $tool = $this->Tools->newEntity();
 
-            do {
-                $x = rand(0, 14);
-                $y = rand(0, 9);
-            }while(!$this->isPositionFree($x, $y));
+                do {
+                    $x = rand(0, 14);
+                    $y = rand(0, 9);
+                }while(!$this->isPositionFree($x, $y));
 
-            $tool->coordinate_y = $y;
-            $tool->coordinate_x = $x;
+                $tool->coordinate_y = $y;
+                $tool->coordinate_x = $x;
 
-            $tool->type = rand(0, 2);
-            $tool->bonus = rand(1, 4);
+                $tool->type = rand(0, 2);
+                $tool->bonus = rand(1, 4);
 
-            $this->Tools->save($tool);
+                $this->Tools->save($tool);
+            }
         }
+        else
+            $this->Flash->error(__('There is already 10 tools on the game.'));
 
         $this->redirect(['controller' => 'Arenas', 'action' => 'index']);
     }
