@@ -12,26 +12,34 @@
 	<div class="row justify-content-center">
 		<div class="tab-content" id="pills-tabContent">
 		  <div class="tab-pane fade show active" id="pills-inbox" role="tabpanel" aria-labelledby="pills-inobx-tab">
-		  	<div class="card">
-			  	<div class="card-body">
-				  	<blockquote class="blockquote">
-		              <p class="mb-0">From :<?php if(isset($messages)): echo $messages->fighter_id_from; endif; ?></p>
-		              <p class="mb-0"><?php echo $messages->message ?></p>
-		              <footer class="blockquote-footer">Received on <cite title="<?php echo $messages->date ?>"><?php echo $messages->date ?></cite></footer>
-		            </blockquote>
-	        	</div>
-	        </div>
+          <?php if(isset($messagesFrom)): ?>
+              <?php foreach ($messagesFrom as $messageFrom): ?>
+              <div class="card">
+                  <div class="card-body">
+                      <blockquote class="blockquote">
+                          <p class="mb-0">From :<?php if(isset($messageFrom)): echo $fighter->name; endif; ?></p>
+                          <p class="mb-0"><?php echo $messageFrom->message ?></p>
+                          <footer class="blockquote-footer">Received on <cite title="<?php echo $messageFrom->date ?>"><?php echo $messageFrom->date ?></cite></footer>
+                      </blockquote>
+                  </div>
+              </div>
+              <?php endforeach; ?>
+          <?php endif; ?>
 		  </div>
 		  <div class="tab-pane fade" id="pills-sent" role="tabpanel" aria-labelledby="pills-sent-tab">
-		  	<div class="card">
-			  	<div class="card-body">
-				  	<blockquote class="blockquote">
-		              <p class="mb-0">To :<?php echo $messages->fighter_id ?></p>
-		              <p class="mb-0"><?php echo $messages->message ?></p>
-		              <footer class="blockquote-footer">Sent on <cite title="<?php echo $messages->date ?>"><?php echo $messages->date ?></cite></footer>
-		            </blockquote>
-	        	</div>
-	        </div>
+          <?php if(isset($messagesTo)): ?>
+              <?php foreach ($messagesTo as $messageTo): ?>
+                <div class="card">
+                    <div class="card-body">
+                        <blockquote class="blockquote">
+                          <p class="mb-0">To :<?php echo $messageTo->fighters_from->name ?></p>
+                          <p class="mb-0"><?php echo $messageTo->message ?></p>
+                          <footer class="blockquote-footer">Sent on <cite title="<?php echo $messageTo->date ?>"><?php echo $messageTo->date ?></cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+              <?php endforeach; ?>
+          <?php endif; ?>
 		  </div>
 		</div>
 	</div>

@@ -22,11 +22,19 @@ class MessagesController extends AppController
     public function index()
     {
         if($this->loadModel('Fighters')->getCurrentFighter() != null)
-            $messages = $this->Messages->find('all')->where(['fighter_id' => $this->loadModel('Fighters')->getCurrentFighter()->id])->orWhere(['fighter_id_from' => $this->loadModel('Fighters')->getCurrentFighter()->id])->toArray();
+        {
+            $fighter = $this->loadModel('Fighters')->getCurrentFighter();
+            $messagesTo = $this->Messages->find('all')->contain(['FightersFrom'])->where(['fighter_id' => $fighter->id])->toArray();
+            $messagesFrom = $this->Messages->find('all')->where(['fighter_id_from' => $fighter->id])->toArray();
+        }
         else
-            $messages = null;
+        {
+            $fighter = null;
+            $messagesFrom = null;
+            $messagesTo = null;
+        }
 
-        $this->set(compact('messages'));
+        $this->set(compact('messagesFrom', 'messagesTo', 'fighter'));
         $this->set('_serialize', ['messages']);
     }
 
