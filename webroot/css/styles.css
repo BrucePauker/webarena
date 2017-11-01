@@ -125,3 +125,8 @@ footer
 {
 	cursor: pointer;
 }
+
+.nav-pills .nav-link.active, .show>.nav-pills .nav-link
+{
+	background-color: #343A40;
+}
