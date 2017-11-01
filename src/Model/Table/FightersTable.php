@@ -241,6 +241,20 @@ class FightersTable extends Table
     }
 
     /**
+     * Load the all the fighters of the database that doesn't belong to the current player
+     *
+     * @param integer $playerId
+     * @return Array Cake\ORM\Entity\Fighter
+     */
+    public function loadAllOtherFighters($playerId) {
+        $fighters = $this->find('all')->contain(['Players', 'Guilds', 'Messages', 'Tools'])->where(function ($exp) {
+            return $exp->notEq('player_id', $_SESSION['Auth']['User']['id']);
+        })->toArray();
+
+        return $fighters;
+    }
+
+    /**
      * Load the all the fighters of the database
      *
      * @param Cake\ORM\Entity\Fighter

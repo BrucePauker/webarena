@@ -58,7 +58,7 @@ class EventsController extends AppController
     {
         $event = $this->Events->newEntity();
 
-        if ($this->request->is('post')) {
+        if ($this->request->is('post') && $this->loadModel('Fighters')->getCurrentFighter()) {
 
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $event->date = Time::now();
@@ -71,6 +71,8 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
+        elseif ($this->loadModel('Fighters')->getCurrentFighter() == null)
+            $this->Flash->error(__('You don\'t have a current fighter.'));
 
         $this->set(compact('event'));
         $this->set('_serialize', ['event']);

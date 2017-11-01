@@ -1,22 +1,26 @@
 <div class="map mt-4">
 	<div class="row">
         <div class="player-button col-12 col-md-3 align-self-center">
-            <?= $this->Html->link('Shout', ['controller' => 'Events', 'action' => 'add'], ['class'=>'btn btn-warning']) ?>
-            <div class="row justify-content-center">
-                <?= $this->Html->link('Up', ['controller' => 'Arenas', 'action' => 'makeAction/up'], ['class'=>'btn btn-success']) ?>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-6 text-center">
-                    <?= $this->Html->link('Left', ['controller' => 'Arenas', 'action' => 'makeAction/left'], ['class'=>'btn btn-success']) ?>
+            <?php if(isset($fighter)): ?>
+                <div class="row justify-content-center mb-3">
+                    <?= $this->Html->link('Shout', ['controller' => 'Events', 'action' => 'add'], ['class'=>'btn btn-warning']) ?>
                 </div>
-				<div class="col-6 text-center">
-                    <?= $this->Html->link('Right', ['controller' => 'Arenas', 'action' => 'makeAction/right'], ['class'=>'btn btn-success']) ?>
+                <div class="row justify-content-center">
+                    <?= $this->Html->link('Up', ['controller' => 'Arenas', 'action' => 'makeAction/up'], ['class'=>'btn btn-success']) ?>
                 </div>
-			</div>
-			<div class="row justify-content-center">
-                <?= $this->Html->link('Down', ['controller' => 'Arenas', 'action' => 'makeAction/down'], ['class'=>'btn btn-success']) ?>
-            </div>
-	    </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <?= $this->Html->link('Left', ['controller' => 'Arenas', 'action' => 'makeAction/left'], ['class'=>'btn btn-success']) ?>
+                    </div>
+                    <div class="col-6 text-center">
+                        <?= $this->Html->link('Right', ['controller' => 'Arenas', 'action' => 'makeAction/right'], ['class'=>'btn btn-success']) ?>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <?= $this->Html->link('Down', ['controller' => 'Arenas', 'action' => 'makeAction/down'], ['class'=>'btn btn-success']) ?>
+                </div>
+            <?php endif; ?>
+        </div>
 	    <div class="col-12 col-md-9 grid">
 				<?php
 					for ($i=0; $i<$size_y; $i++) 
@@ -26,7 +30,7 @@
 				<?php
 						for ($j=0; $j<$size_x; $j++) 
 						{
-						    if($fighter->isOnSight($fighter, $j, $i))
+						    if(isset($fighter) && $fighter->isOnSight($fighter, $j, $i))
 						        echo '<div class="col-table-'.$j.' on-sight">';
 						    else
                                 echo '<div class="col-table-'.$j.'">';

@@ -36,7 +36,14 @@ class MessagesTable extends Table
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Fighters', [
+        $this->belongsTo('FightersFrom', [
+            'className' => 'Fighters',
+            'foreignKey' => 'fighter_id_from',
+            'joinType' => 'INNER'
+        ]);
+
+        $this->hasMany('FightersTo', [
+            'className' => 'Fighters',
             'foreignKey' => 'fighter_id',
             'joinType' => 'INNER'
         ]);
@@ -70,9 +77,9 @@ class MessagesTable extends Table
             ->notEmpty('message');
 
         $validator
-            ->integer('fighter_id_from')
-            ->requirePresence('fighter_id_from', 'create')
-            ->notEmpty('fighter_id_from');
+            ->integer('fighter_id')
+            ->requirePresence('fighter_id', 'create')
+            ->notEmpty('fighter_id');
 
         return $validator;
     }

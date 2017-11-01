@@ -55,7 +55,10 @@ class ArenasController extends AppController
             $fighters = $this->fightersModel->loadAllFightersOnSight($fighter);
         }
         else
+        {
             $fighters = null;
+            $this->Flash->error(__('You don\'t have a current fighter.'));
+        }
         
         $this->set('size_x', $size_x);
         $this->set('size_y', $size_y);
