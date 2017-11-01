@@ -21,10 +21,29 @@ footer
 	bottom: 0;
 }
 
-.container-fluid
-{
+.container-fluid{
 	min-height: 60vh;
 }
+
+.custom-file>.input{
+	display: none;
+}
+
+.create-fighter, .custom-file{
+	cursor: pointer;
+}
+
+.nav-pills .nav-link.active, .show>.nav-pills .nav-link{
+	background-color: #343A40;
+}
+
+.custom-file-control:before{
+  content: "Browse";
+}
+.custom-file-control:after{
+  content: "Choose file...";
+}
+
 
 /* MAP CSS */
 
@@ -93,40 +112,14 @@ footer
 	background-size: 100% 4rem;
 }
 
-
-/* ----------------------------- */
-
-.custom-file-control:before{
-  content: "Browse";
-}
-.custom-file-control:after{
-  content: "Choose file...";
-}
-
-
-.index-image
-{
+/* INDEX PAGE */
+.index-image{
 	height: auto;
 }
 
-.index-description
-{
+.index-description{
 	position: absolute;
 	top:12rem;
 }
 
 
-.custom-file>.input
-{
-	display: none;
-}
-
-.create-fighter, .custom-file
-{
-	cursor: pointer;
-}
-
-.nav-pills .nav-link.active, .show>.nav-pills .nav-link
-{
-	background-color: #343A40;
-}

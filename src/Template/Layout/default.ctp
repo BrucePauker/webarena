@@ -95,9 +95,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="col-4 p-3">
                 <dl>
                     <dt>Options</dt>
-                    <dd>Bootstrap</dd>
-                    <dd>Guilds / Messages</dd>
-                    <dd>Equipments</dd>
+                    <dd>A: Equipments</dd>
+                    <dd>B: Guilds / Messages</dd>
+                    <dd>F: Bootstrap</dd>
+                    <dd>Beginning of E: Avanced Interface</dd>
                 </dl>
             </div>
             <div class="col-4 p-3">
