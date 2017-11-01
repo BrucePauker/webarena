@@ -86,7 +86,7 @@ class FightersController extends AppController
             $fighter->coordinate_y = $y;
             $fighter->player_id = $this->Auth->user('id');
             if ($this->Fighters->save($fighter)) {
-                move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
+                move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$fighter->id.'.jpg');
                 $this->eventsController->add($fighter->name." arrive sur l'arène!", $fighter->coordinate_x, $fighter->coordinate_y);
                 $this->Flash->success(__('The fighter has been saved.'));
                 return $this->redirect(['action' => 'view/'.$fighter->id]);
@@ -151,7 +151,7 @@ class FightersController extends AppController
             if ($this->Fighters->save($fighter)) {
                 if(!empty($this->request->getData()['avatar_file']['tmp_name']))
                 {
-                    unlink(WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
+                    unlink(WWW_ROOT.'\img\avatars'.DS.$fighter->id.'.jpg');
                     move_uploaded_file($this->request->getData()['avatar_file']['tmp_name'], WWW_ROOT.'\img\avatars'.DS.$this->Auth->user('id').'_'.$fighter->id.'.jpg');
                 }
                 $this->Flash->success(__('The fighter has been saved.'));

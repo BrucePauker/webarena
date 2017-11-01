@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-4 text-center align-self-center">
-        <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="img-fluid rounded" width="150">' ?>
+        <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" class="img-fluid rounded" width="150">' ?>
         <h5><?= $fighter->name ?></h5>
         <?php if($fighter->player == $player): ?>
         <div class="row">

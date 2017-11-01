@@ -11,7 +11,7 @@
             <?php foreach ($fighters as $key => $fighter): ?>
                     <div class="carousel-item <?php if($key == 0) echo('active')  ?>">
                         <div class="card text-white bg-dark m-auto" style="max-width: 20rem;">
-                            <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->player->id.'_'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded" width="150">' ?>
+                            <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded" width="150">' ?>
                             <div class="card-body text-center">
                                 <h4 class="card-title"><?= $fighter->name ?></h4>
                                 <?= $this->Html->link('See more', ['controller' => 'Fighters', 'action' => 'view/'.$fighter->id], ['class'=>'btn btn-dark']) ?>
