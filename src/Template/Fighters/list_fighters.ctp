@@ -30,15 +30,14 @@
         </div>
     <?php endif; ?>
 </div>
-<div class="create-fighter position-absolute mb-5 mr-5 float-right">
+<div class="create-fighter mb-5 mr-5 float-right">
     <a href="<?= $this->Url->build([
-                    'controller' => 'Fighters',
-                    'action' => 'add'
-                ]); ?>">
-            <img src="/webArena/img/plus.png" class="float-right" width="50">
-        </a>
+                'controller' => 'Fighters',
+                'action' => 'add'
+            ]); ?>">
+        <img src="/webArena/img/plus.png" class="float-right" width="50">
+    </a>
 </div>
-    
 
 
 
@@ -51,31 +50,3 @@
 
 
 
-
-
-
-
-<div class="modal fade" id="ModalFighter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="FighterModalLabel">Create a Fighter</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="players form">
-            <?= $this->Form->create($fighter) ?>
-            <fieldset>
-                <?= $this->Form->control('name',['class'=>'form-control']) ?>
-            </fieldset>
-            <?= $this->Form->button(__('Add'),['class'=>'btn btn-primary mt-4 float-right']); ?>
-            <?= $this->Form->end() ?>
-        </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
