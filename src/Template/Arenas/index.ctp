@@ -9,7 +9,7 @@
                             <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded">' ?>
                             <p class="card-text text-center">Health :
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="<?= $fighter->current_health ?>" aria-valuemin="0" aria-valuemax="<?= $fighter->skill_health ?>"><?= $fighter->current_health ?></div>
+                                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $fighter->current_health * 100 / $fighter->skill_health ?>%" aria-valuenow="<?= $fighter->current_health ?>" aria-valuemin="0" aria-valuemax="<?= $fighter->skill_health ?>"><?= $fighter->current_health ?></div>
                                 </div>
                             </p>
                             <p class="card-text text-center">Coordinate x : <?= $fighter->coordinate_x ?></p>
@@ -36,7 +36,7 @@
                         <?= $this->Html->link('Right', ['controller' => 'Arenas', 'action' => 'makeAction/right'], ['class'=>'btn btn-success']) ?>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-3">
                     <?= $this->Html->link('Down', ['controller' => 'Arenas', 'action' => 'makeAction/down'], ['class'=>'btn btn-success']) ?>
                 </div>
             <?php endif; ?>

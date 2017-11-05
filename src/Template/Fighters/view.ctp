@@ -48,7 +48,10 @@
               <div class="card-header">Health</div>
               <div class="card-body">
                 <p class="card-text">Health Skill : <?= $fighter->skill_health ?></p>
-                <p class="card-text">Current Health : <?= $fighter->current_health ?></p>
+                <p class="card-text">Current Health :
+                  <div class="progress">
+                      <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $fighter->current_health * 100 / $fighter->skill_health ?>%" aria-valuenow="<?= $fighter->current_health ?>" aria-valuemin="0" aria-valuemax="<?= $fighter->skill_health ?>"><?= $fighter->current_health ?></div>
+                  </div></p>
               </div>
             </div>
         </div>

@@ -182,6 +182,7 @@ class ArenasController extends AppController
                 else if($tool->type == '2')
                 {
                     $fighter->skill_health = $fighter->skill_health + $tool->bonus;
+                    $fighter->current_health = $fighter->skill_health;
                     $this->Flash->success(__('You upgraded your health from '.$tool->bonus));
                 }
 
