@@ -110,15 +110,14 @@ class PlayersController extends AppController
         $player = $this->Players->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['post'])) {
-            $player->password = $this->request->getData()['password'];
-            $player->confirmpassword = $this->request->getData()['confirmpassword'];
-            if ($this->Users->save($player)) {
+        if ($this->request->is(['put', 'post'])) {
+            $player = $this->Players->patchEntity($player, $this->request->getData());
+            if ($this->Players->save($player)) {
                 $this->Flash->success(__('Your password has been successfully updated.'));
-                return $this->redirect(['action' => 'login']);
             }
             $this->Flash->error(__('Your password could not be saved. Please, try again.'));
         }
+
         $this->set(compact('player'));
         $this->set('_serialize', ['player']);
     }
