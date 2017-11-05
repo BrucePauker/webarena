@@ -23,7 +23,7 @@
                     <?= $this->Html->link('Generate Tools', ['controller' => 'Tools', 'action' => 'generate'], ['class'=>'btn btn-warning']) ?>
                 </div>
                 <div class="row justify-content-center mt-3 mb-3">
-                    <?= $this->Html->link('Shout', ['controller' => 'Events', 'action' => 'add'], ['class'=>'btn btn-warning']) ?>
+                    <?= $this->Html->link('Shout', ['controller' => 'Events', 'action' => 'shout'], ['class'=>'btn btn-warning']) ?>
                 </div>
                 <div class="row justify-content-center">
                     <?= $this->Html->link('Up', ['controller' => 'Arenas', 'action' => 'makeAction/up'], ['class'=>'btn btn-success']) ?>

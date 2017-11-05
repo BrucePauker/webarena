@@ -67,8 +67,7 @@ footer
     width: calc(100% / 15);
 	height: 4rem;
     text-align: center;
-	background-color: black;
-	/*background: url(../webroot/img/grass.jpg) center no-repeat;*/
+	background: url(../webroot/img/fog.png) center no-repeat;
 	background-size: 100% 4rem;
 }
 

@@ -34,7 +34,7 @@ class EventsController extends AppController
      * @param integer coordinate_x default null
      * @param integer coordiante_y default null
      */
-    public function addManually($name, $coordinate_x = null, $coordinate_y = null)
+    public function add($name, $coordinate_x = null, $coordinate_y = null)
     {
         $event = $this->Events->newEntity();
 
@@ -54,13 +54,14 @@ class EventsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function shout()
     {
         $event = $this->Events->newEntity();
 
         if ($this->request->is('post') && $this->loadModel('Fighters')->getCurrentFighter()) {
 
             $event = $this->Events->patchEntity($event, $this->request->getData());
+            $event->name = $this->loadModel('Fighters')->getCurrentFighter()->name.' just shouted : '.$event->name;
             $event->date = Time::now();
             $event->coordinate_y = $this->loadModel('Fighters')->getCurrentFighter()->coordinate_y;
             $event->coordinate_x = $this->loadModel('Fighters')->getCurrentFighter()->coordinate_x;
