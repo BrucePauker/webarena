@@ -24,10 +24,13 @@
         <h5><?= $fighter->name ?></h5>
         <?php if($fighter->player == $player): ?>
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
               <?= $this->Html->link('Edit', ['controller' => 'Fighters', 'action' => 'edit/'.$fighter->id], ['class'=>'btn btn-info nav-link m-auto']) ?>
             </div>
-            <div class="col-6">
+            <div class="col-4">
+                <?= $this->Html->link('Choose fighter', ['controller' => 'Fighters', 'action' => 'selectFighter/'.$fighter->id], ['class'=>'btn btn-info nav-link m-auto wrap-button']) ?>
+            </div>
+            <div class="col-4">
                 <?= $this->Html->link('Pass Level', ['controller' => 'Fighters', 'action' => 'edit'], ['class'=>'btn btn-info nav-link m-auto']) ?>
             </div>
         </div>
