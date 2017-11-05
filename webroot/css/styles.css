@@ -122,4 +122,18 @@ footer
 	top:12rem;
 }
 
+.blue-link {
+	color: #007bff;
+}
+
+.blue-link:hover {
+	text-decoration: underline;
+	color: #007bff;
+	text-decoration-color: #007bff;
+}
+
+.error-message {
+	color : #dc3545;
+}
+
 

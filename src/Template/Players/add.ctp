@@ -6,11 +6,12 @@
 			</div>
 			<div class="card-body">
 		    	<div class="players form">
-				    <?= $this->Form->create($player) ?>
+				    <?= $this->Form->create($player,['class' => 'was-validated']) ?>
 				    <fieldset>
 				        <?= $this->Form->control('email', ['class'=>'form-control']) ?>
 				        <?= $this->Form->control('password',  ['class'=>'form-control']) ?>
-				    </fieldset>
+                        <?= $this->Form->control('confirm_password', ['class'=>'form-control', 'type' => 'password', 'required' => 'required']) ?>
+                    </fieldset>
 				    <?= $this->Form->button(__('Sign In'),['class'=>'btn btn-primary mt-4 float-right']); ?>
 				    <?= $this->Form->end() ?>
 				</div>

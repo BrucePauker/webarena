@@ -21,7 +21,7 @@ class PlayersController extends AppController
      */
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['add', 'login']);
+        $this->Auth->allow(['add', 'login', 'forgotPassword', 'resetPassword']);
     }
 
     /**
@@ -90,10 +90,10 @@ class PlayersController extends AppController
         if ($this->request->is('post')) {
             $player = $this->Players->patchEntity($player, $this->request->getData());
             if ($this->Players->save($player)) {
-                $this->Flash->success(__("The user have been saved"));
+                $this->Flash->success(__("The player have been saved"));
                 return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->error(__("Impossible to add the user"));
+            $this->Flash->error(__("Impossible to add the player"));
         }
         $this->set('player', $player);
     }
@@ -111,8 +111,8 @@ class PlayersController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['post'])) {
-            $player->password = $this->request->data['password'];
-            $player->confirmpassword = $this->request->data['confirmpassword'];
+            $player->password = $this->request->getData()['password'];
+            $player->confirmpassword = $this->request->getData()['confirmpassword'];
             if ($this->Users->save($player)) {
                 $this->Flash->success(__('Your password has been successfully updated.'));
                 return $this->redirect(['action' => 'login']);
@@ -142,5 +142,47 @@ class PlayersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
+    /**
+     * Show the view if the user wants to fin his password.
+     * If post mode, find the user with his email and send the password data to
+     * the getFotgottenPassword function
+     *
+     * @return \Cake\Http\Response
+     */
+    public function forgotPassword() {
+
+        if ($this->request->is(['post'])) {
+            $email = $this->request->getData()['email'];
+
+            $player = $this->Players->find('all')->where(['email' => $email])->first();
+
+            if($player == null)
+                $this->Flash->error(__('No players with this email could be found.'));
+            else
+                $this->redirect(['action' => 'resetPassword/'.$player->id]);
+
+        }
+    }
+
+    /**
+     * Show the password of a user after he resuested
+     *
+     * @param integer $playerId
+     * @erturn \Cake\Http\Response
+     */
+    public function resetPassword($playerId) {
+        $player = $this->Players->get($playerId);
+
+        if ($this->request->is('post')) {
+            $player = $this->Players->patchEntity($player, $this->request->getData());
+            if ($this->Players->save($player)) {
+                $this->Flash->success(__("The player have been saved"));
+                return $this->redirect(['action' => 'login']);
+            }
+            $this->Flash->error(__("Impossible to save the player"));
+        }
+
+        $this->set('player', $player);
+    }
 }

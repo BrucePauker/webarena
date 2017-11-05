@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <div class="players form">
-                    <?= $this->Form->create($fighter, ['type' => 'file']) ?>
+                    <?= $this->Form->create($fighter, ['type' => 'file', 'class' => 'was-validated']) ?>
                     <fieldset>
                         <?= $this->Form->control('name',['class'=>'form-control']) ?>
                         <label class="custom-file text-left mt-3 w-100">

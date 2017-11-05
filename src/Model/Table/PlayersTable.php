@@ -63,6 +63,9 @@ class PlayersTable extends Table
             ->requirePresence('password', 'create')
             ->notEmpty('password');
 
+        $validator->sameAs('password','confirm_password','Passwords not equal.');;
+
+
         return $validator;
     }
 

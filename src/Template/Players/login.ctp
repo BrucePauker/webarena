@@ -16,6 +16,9 @@
 			   		<?= $this->Form->end() ?>
 				</div>
 	  		</div>
+            <div class="card-footer text-muted">
+                <?= $this->Html->link('Forgot Password', ['controller' => 'Players', 'action' => 'forgotPassword'], ['class' => 'blue-link']) ?>
+            </div>
 		</div>
 	</div>
 </div>

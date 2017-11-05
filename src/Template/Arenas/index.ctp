@@ -7,7 +7,11 @@
                         <div class="card-header text-center"><?= $fighter->name ?></div>
                         <div class="card-body justify-content-center">
                             <?php echo '<img src="/webarena/webroot/img/avatars/'.$fighter->id.'.jpg" class="card-img-top img-fluid rounded">' ?>
-                            <p class="card-text text-center">Health : <?= $fighter->current_health ?></p>
+                            <p class="card-text text-center">Health :
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="<?= $fighter->current_health ?>" aria-valuemin="0" aria-valuemax="<?= $fighter->skill_health ?>"><?= $fighter->current_health ?></div>
+                                </div>
+                            </p>
                             <p class="card-text text-center">Coordinate x : <?= $fighter->coordinate_x ?></p>
                             <p class="card-text text-center">Coordinate y : <?= $fighter->coordinate_y ?></p>
                         </div>
