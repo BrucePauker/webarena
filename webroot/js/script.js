@@ -1,6 +1,3 @@
-$('.carousel').carousel();
-
-
 $( function() {
     $( "#searchName" ).autocomplete({
         source: function(request, response){
